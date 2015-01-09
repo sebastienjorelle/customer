@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customSettingsType>Hierarchy</customSettingsType>
+    <customSettingsVisibility>Public</customSettingsVisibility>
+    <description>Stores values/limits associated to Case object</description>
+    <enableFeeds>false</enableFeeds>
+    <fields>
+        <fullName>Case_Reopen_limit__c</fullName>
+        <externalId>false</externalId>
+        <label>Case Reopen limit</label>
+        <precision>14</precision>
+        <required>false</required>
+        <scale>6</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>First_Response_SLA_Hours__c</fullName>
+        <description>Number of hours for SLA of first response</description>
+        <externalId>false</externalId>
+        <label>First Response SLA (Hours)</label>
+        <precision>6</precision>
+        <required>false</required>
+        <scale>3</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <label>CS_Caselimit</label>
+</CustomObject>

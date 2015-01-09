@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LiveChatButton xmlns="http://soap.sforce.com/2006/04/metadata">
+    <autoGreeting>Hi {!LiveAgent_VisitorName},welcome to BBC support Live Chat</autoGreeting>
+    <customAgentName>{!User_FirstName}</customAgentName>
+    <deployments/>
+    <enableQueue>true</enableQueue>
+    <isActive>true</isActive>
+    <label>Delete_Payment Inquiry Button</label>
+    <optionsCustomRoutingIsEnabled>false</optionsCustomRoutingIsEnabled>
+    <optionsHasInviteAfterAccept>false</optionsHasInviteAfterAccept>
+    <optionsHasInviteAfterReject>false</optionsHasInviteAfterReject>
+    <optionsHasRerouteDeclinedRequest>false</optionsHasRerouteDeclinedRequest>
+    <optionsIsAutoAccept>false</optionsIsAutoAccept>
+    <optionsIsInviteAutoRemove>false</optionsIsInviteAutoRemove>
+    <overallQueueLength>5</overallQueueLength>
+    <routingType>Choice</routingType>
+    <skills>
+        <skill>Payment_Inquiries</skill>
+    </skills>
+    <type>Standard</type>
+    <windowLanguage>en_US</windowLanguage>
+</LiveChatButton>

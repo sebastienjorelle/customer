@@ -1,0 +1,666 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Follow</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>This object is used to track actions performed by end users</description>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>Account__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Account</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>Actions</relationshipLabel>
+        <relationshipName>Actions</relationshipName>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Action_Closed_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Action Closed Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Action_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Action Due Date</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Action_Name__c</fullName>
+        <externalId>false</externalId>
+        <label>Action Name</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Change email-address</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Set marketing preference</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Reset password</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Cancel pre-order</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Add entitlements</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Remove entitlements</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Add credit card</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Remove credit card</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Add Store credit</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Remove Store credit</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Full refund</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Partial refund</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Refund Store credit</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Get escalation update</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Case__c</fullName>
+        <externalId>false</externalId>
+        <label>Case</label>
+        <referenceTo>Case</referenceTo>
+        <relationshipLabel>Actions</relationshipLabel>
+        <relationshipName>Actions</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <reparentableMasterDetail>false</reparentableMasterDetail>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>Days_Overdue__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF ( 
+     AND (
+           ISPICKVAL( Status__c , &quot;Pending&quot;), 
+           Today()&gt; Action_Date__c 
+          ),
+     Today()-Action_Date__c,
+     
+IF ( 
+     AND (
+           ISPICKVAL( Status__c , &quot;Pending&quot;), 
+           Today() &lt;= Action_Date__c 
+          ),
+     0,
+
+IF ( 
+     AND (
+           ISPICKVAL( Status__c , &quot;Completed&quot;), 
+            Action_Closed_Date__c &gt; Action_Date__c 
+          ),
+     Action_Closed_Date__c - Action_Date__c, 0
+   )))</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Days Overdue</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Description__c</fullName>
+        <externalId>false</externalId>
+        <label>Description</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Overdue_Image__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF (
+      Overdue__c  = TRUE,
+     IMAGE (&quot;/img/msg_icons/error24.png&quot;, &quot;Overdue&quot;), 
+     IMAGE (&quot;/img/msg_icons/confirm24.png&quot;, &quot;On time&quot;)
+    )</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Overdue</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Overdue__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Overdue</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Reason__c</fullName>
+        <externalId>false</externalId>
+        <label>Reason</label>
+        <picklist>
+            <controllingField>Action_Name__c</controllingField>
+            <picklistValues>
+                <fullName>Found the product cheaper elsewhere</fullName>
+                <controllingFieldValues>Cancel pre-order</controllingFieldValues>
+                <controllingFieldValues>Full refund</controllingFieldValues>
+                <controllingFieldValues>Partial refund</controllingFieldValues>
+                <controllingFieldValues>Refund Store credit</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Changed their mind</fullName>
+                <controllingFieldValues>Cancel pre-order</controllingFieldValues>
+                <controllingFieldValues>Full refund</controllingFieldValues>
+                <controllingFieldValues>Partial refund</controllingFieldValues>
+                <controllingFieldValues>Refund Store credit</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Dissatisfied with product</fullName>
+                <controllingFieldValues>Full refund</controllingFieldValues>
+                <controllingFieldValues>Partial refund</controllingFieldValues>
+                <controllingFieldValues>Refund Store credit</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Encountered technical issues</fullName>
+                <controllingFieldValues>Full refund</controllingFieldValues>
+                <controllingFieldValues>Partial refund</controllingFieldValues>
+                <controllingFieldValues>Refund Store credit</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>TBC by BBC</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Technical error online</fullName>
+                <controllingFieldValues>Add Store credit</controllingFieldValues>
+                <controllingFieldValues>Add credit card</controllingFieldValues>
+                <controllingFieldValues>Change email-address</controllingFieldValues>
+                <controllingFieldValues>Remove credit card</controllingFieldValues>
+                <controllingFieldValues>Reset password</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Didn&apos;t know how to do it online</fullName>
+                <controllingFieldValues>Add Store credit</controllingFieldValues>
+                <controllingFieldValues>Add credit card</controllingFieldValues>
+                <controllingFieldValues>Change email-address</controllingFieldValues>
+                <controllingFieldValues>Remove credit card</controllingFieldValues>
+                <controllingFieldValues>Reset password</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Thought it would be faster to change via contact centre than online</fullName>
+                <controllingFieldValues>Add Store credit</controllingFieldValues>
+                <controllingFieldValues>Add credit card</controllingFieldValues>
+                <controllingFieldValues>Change email-address</controllingFieldValues>
+                <controllingFieldValues>Remove credit card</controllingFieldValues>
+                <controllingFieldValues>Reset password</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>(opt-in) Wants to receive marketing</fullName>
+                <controllingFieldValues>Set marketing preference</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>(opt-in) Wants marketing but is not receiving it</fullName>
+                <controllingFieldValues>Set marketing preference</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>(opt-out) Receives too much marketing</fullName>
+                <controllingFieldValues>Set marketing preference</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>(opt-out) Didn&apos;t sign up for marketing</fullName>
+                <controllingFieldValues>Set marketing preference</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>(opt-out) Felt the marketing wasn&apos;t appropriate</fullName>
+                <controllingFieldValues>Set marketing preference</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Content not visible in My Programmes</fullName>
+                <controllingFieldValues>Add entitlements</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Restoring entitlements from a closed Store account</fullName>
+                <controllingFieldValues>Add entitlements</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Content has been refunded but is still visible in My Programmes</fullName>
+                <controllingFieldValues>Remove entitlements</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>User has an entitlement that they shouldn’t be entitled to</fullName>
+                <controllingFieldValues>Remove entitlements</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Credit was issued but refund is required</fullName>
+                <controllingFieldValues>Remove Store credit</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Credit was issued in error</fullName>
+                <controllingFieldValues>Remove Store credit</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Encountered issues redeeming credit</fullName>
+                <controllingFieldValues>Refund Store credit</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Follow-up with case team</fullName>
+                <controllingFieldValues>Get escalation update</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Unclear on next steps</fullName>
+                <controllingFieldValues>Get escalation update</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Not had feedback within a period of time</fullName>
+                <controllingFieldValues>Get escalation update</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Problem persists/is worsening</fullName>
+                <controllingFieldValues>Get escalation update</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Good-will gesture</fullName>
+                <controllingFieldValues>Add credit card</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Product refund</fullName>
+                <controllingFieldValues>Add credit card</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Refund_amount__c</fullName>
+        <externalId>false</externalId>
+        <label>Amount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Status__c</fullName>
+        <externalId>false</externalId>
+        <label>Status</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Pending</fullName>
+                <default>true</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Completed</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <label>Action</label>
+    <listViews>
+        <fullName>All</fullName>
+        <columns>NAME</columns>
+        <columns>Action_Name__c</columns>
+        <columns>Action_Date__c</columns>
+        <columns>Status__c</columns>
+        <columns>Account__c</columns>
+        <columns>Case__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <nameField>
+        <displayFormat>A-{0000}</displayFormat>
+        <label>Action ID</label>
+        <trackHistory>false</trackHistory>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Actions</pluralLabel>
+    <recordTypeTrackHistory>false</recordTypeTrackHistory>
+    <recordTypes>
+        <fullName>Action_Record_Type</fullName>
+        <active>true</active>
+        <label>Action Record Type</label>
+        <picklistValues>
+            <picklist>Action_Name__c</picklist>
+            <values>
+                <fullName>Add Store credit</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Add credit card</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Add entitlements</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cancel pre-order</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Change email-address</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Full refund</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Get escalation update</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Partial refund</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Refund Store credit</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Remove Store credit</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Remove credit card</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Remove entitlements</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Reset password</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Set marketing preference</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Reason__c</picklist>
+            <values>
+                <fullName>%28opt-in%29 Wants marketing but is not receiving it</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>%28opt-in%29 Wants to receive marketing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>%28opt-out%29 Didn%27t sign up for marketing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>%28opt-out%29 Felt the marketing wasn%27t appropriate</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>%28opt-out%29 Receives too much marketing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Changed their mind</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Content has been refunded but is still visible in My Programmes</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Content not visible in My Programmes</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Credit was issued but refund is required</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Credit was issued in error</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Didn%27t know how to do it online</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Dissatisfied with product</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Encountered issues redeeming credit</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Encountered technical issues</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Follow-up with case team</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Found the product cheaper elsewhere</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Good-will gesture</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not had feedback within a period of time</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Problem persists%2Fis worsening</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Product refund</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Restoring entitlements from a closed Store account</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TBC by BBC</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Technical error online</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Thought it would be faster to change via contact centre than online</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Unclear on next steps</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>User has an entitlement that they shouldn%E2%80%99t be entitled to</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Status__c</picklist>
+            <values>
+                <fullName>Completed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pending</fullName>
+                <default>true</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <searchLayouts>
+        <customTabListAdditionalFields>Action_Name__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Action_Date__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Account__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Case__c</customTabListAdditionalFields>
+        <searchFilterFields>Action_Name__c</searchFilterFields>
+        <searchFilterFields>Action_Date__c</searchFilterFields>
+        <searchFilterFields>Account__c</searchFilterFields>
+        <searchFilterFields>Case__c</searchFilterFields>
+        <searchFilterFields>Status__c</searchFilterFields>
+        <searchFilterFields>Description__c</searchFilterFields>
+        <searchResultsAdditionalFields>Action_Name__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Action_Date__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Account__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Case__c</searchResultsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>ControlledByParent</sharingModel>
+    <startsWith>Vowel</startsWith>
+    <validationRules>
+        <fullName>Description_must_not_be_blank</fullName>
+        <active>true</active>
+        <description>Description field must not be blank</description>
+        <errorConditionFormula>LEN ( Description__c ) = 0</errorConditionFormula>
+        <errorDisplayField>Description__c</errorDisplayField>
+        <errorMessage>Please enter a description of the action</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Reason_cannot_be_blank</fullName>
+        <active>true</active>
+        <description>Reason is mandatory</description>
+        <errorConditionFormula>ISPICKVAL (Reason__c, &quot;&quot;)</errorConditionFormula>
+        <errorDisplayField>Reason__c</errorDisplayField>
+        <errorMessage>Please enter a reason</errorMessage>
+    </validationRules>
+</CustomObject>

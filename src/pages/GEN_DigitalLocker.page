@@ -1,0 +1,746 @@
+<!------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+           Name:          GEN_DigitalLocker.page
+
+           Description:  Visualforce Page that provides a list of Products and Entitlement records
+
+ 
+
+   Date             Version         Author                             Summary of Changes
+
+   -----------      ----------   -----------------                 ---------------------------------------------------------------------------------------------------
+
+   Nov 2014         1.0           Shalabh Sharma                       Initial Release
+
+    ------------------------------------------------------------------------------------------------------------------------------------------------------------->  
+
+<apex:page controller="GEN_DigitalLockerController" id="thePage" tabStyle="Case">
+    <apex:includeScript value="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js" />
+    <apex:includeScript value="//cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.17.8/js/jquery.tablesorter.min.js" />
+    <apex:stylesheet value="{!URLFOR($Resource.StyleTableSorter)}"/>
+    <apex:includeScript value="/support/console/22.0/integration.js"/>
+    <style>
+    .tablesorter-blue .header,
+    .tablesorter-blue .tablesorter-header{
+        background-image: url('{!URLFOR($Resource.background)}')!important;
+        background-repeat: no-repeat !important;
+        background-position: center right !important;
+    }
+    .tablesorter-blue .headerSortUp,
+    .tablesorter-blue .tablesorter-headerSortUp,
+    .tablesorter-blue .tablesorter-headerAsc{
+        background-image: url('{!URLFOR($Resource.descending)}')!important; 
+        background-repeat: no-repeat !important;
+        background-position: center right !important;
+    }
+    .tablesorter-blue .headerSortDown,
+    .tablesorter-blue .tablesorter-headerSortDown,
+    .tablesorter-blue .tablesorter-headerDesc{
+        background-image: url('{!URLFOR($Resource.ascending)}')!important; 
+        background-repeat: no-repeat !important;
+        background-position: center right !important;
+    }
+    .caseTab .pageTitleIcon, .individualPalette .caseBlock
+    .pageTitleIcon {
+        background-image: url('/img/sprites/master.png');
+        background-position: 0px -986px;
+        width: 32px;
+        height: 32px;
+    }
+    .modalContainer{
+    background-color:black;
+    opacity: 0.30;
+    filter: alpha(opacity = 20);
+    position: absolute;
+    width: 100%;
+    height: 300%;
+    top: 0;
+    left: 0;
+    z-index: 9997;
+    visibility : hidden;
+    }
+    
+    .customModal{
+    background-color: white;
+    border-width: 1px;;
+    border-style: solid;
+    z-index: 9998;
+    left: 80%; 
+    draggable: false;
+    resizable: false;
+    overflow:auto;
+    padding:8px;
+    position: absolute;
+    visibility : hidden;
+    /* These are the 3 css properties you will need to change so the popup 
+    displays in the center of the screen. First set the width. Then set 
+    margin-left to negative half of what the width is. You can add 
+    the height property for a fixed size pop up if you want.*/
+    width: 300px;
+    margin-left: -700px;
+    top:100px; 
+    height: 280px;
+    }
+    .customModal1{
+    background-color: white;
+    border-width: 1px;;
+    border-style: solid;
+    z-index: 9998;
+    left: 80%; 
+    draggable: false;
+    resizable: false;
+    overflow:auto;
+    padding:4px;
+    position: absolute;
+    visibility : hidden;
+    /* These are the 3 css properties you will need to change so the popup 
+    displays in the center of the screen. First set the width. Then set 
+    margin-left to negative half of what the width is. You can add 
+    the height property for a fixed size pop up if you want.*/
+    width: 300px;
+    margin-left: -700px;
+    top:100px; 
+    height: 130px;
+    }
+
+    </style>
+
+    <apex:form id="theForm">
+
+        <apex:outputPanel id="back">
+        <img src="/s.gif" class="pageTitleIcon"></img>
+        <apex:outputText value="Case" style="font-weight:bolder;font-size:13px;"></apex:outputText><br></br>
+        <apex:outputText value="{!caseRecord.CaseNumber}" style="font-weight:bolder;font-size:15px;"></apex:outputText><br></br>
+        &nbsp;&nbsp;&nbsp;&nbsp;<apex:outputLink value="/{!caseRecord.Id}" style="color:#015BA7">{!$Label.Back}</apex:outputLink><br></br>
+        </apex:outputPanel>
+        <br></br>
+        <apex:pageBlock title="Pre-orders: {!countProd}" id="thePageBlock">
+            <apex:pageBlockTable value="{!products}" var="product" id="thePageBlockTable" styleClass="tablesorter">
+                <apex:column headerValue="Action">
+                    <apex:commandLink id="cancelLink" value="Cancel" onclick="enableCancelScreen();return false;" rendered="{!showCancelPreOrder}"></apex:commandLink>
+                </apex:column>
+                <apex:column headerValue="Product">
+                    <apex:outputText value="{!product.prod.Name}"/>
+                </apex:column>
+                <apex:column headerValue="Release Date">
+                    <apex:outputText value="{0,date,MMMM d','yyyy}">
+                    <apex:param value="{!product.prod.Action_Date__c}"/>
+                    </apex:outputText>
+                </apex:column>
+                <apex:column headerValue="Date Ordered">
+                    <apex:outputText value="{0,date,MMMM d','yyyy}">
+                    <apex:param value="{!product.prod.Action_Date__c}"/>
+                    </apex:outputText>
+                </apex:column>
+                <apex:column headerValue="Amount">
+                    <apex:outputText value="14.99"/>
+                </apex:column>
+                <apex:column headerValue="Type">
+                    <apex:outputText value="{!product.prod.Reason__c}"/>
+                </apex:column>
+            </apex:pageBlockTable>
+            <br></br>
+            <center><apex:commandLink action="{!first}" id="first">First</apex:commandlink>&nbsp;&nbsp;
+            <apex:commandLink action="{!previous}" rendered="{!hasPrevious}">Prev</apex:commandlink>&nbsp;&nbsp;
+            <apex:outputText value="{!pageNumber}"/>&nbsp;&nbsp;
+            <apex:commandLink action="{!next}" rendered="{!hasNext}">Next</apex:commandlink>&nbsp;&nbsp;
+            <apex:commandLink action="{!last}">Last</apex:commandlink></center>
+            <apex:outputText value="Page {!pageNumber} of {!countPage}"/>
+        </apex:pageBlock>
+        <apex:pageBlock title="Entitlements: {!countProd}" id="theEntPageBlock">
+            <apex:pageBlockButtons location="bottom" id="theEntBlockButtons">
+                <apex:commandButton action="{!addEntitlements}" value="Add" disabled="{!showAddEntitlement}"/>
+                <apex:commandButton value="Remove" action="{!remove}" disabled="{!showRemoveEntitlement}" oncomplete="enableRemoveScreen('{!noRecordSelected}');return false;"/>
+                
+            </apex:pageBlockButtons>
+
+            <apex:pageBlockTable value="{!products}" var="product" id="thePageBlockTable2" styleClass="tablesorter">
+                <apex:column >
+                    <apex:inputCheckbox id="checkBox" value="{!product.checked}"></apex:inputCheckbox>
+                </apex:column>
+                <apex:column headerValue="Product">
+                    <apex:outputText value="{!product.prod.Name}"/>    
+                </apex:column>
+                <apex:column headerValue="Date Ordered">
+                    <apex:outputText value="{0,date,MMMM d','yyyy}">
+                    <apex:param value="{!product.prod.Action_Date__c}"/>
+                    </apex:outputText>
+                </apex:column>
+                <apex:column headerValue="Amount">
+                    <apex:outputText value="14.99"/>
+                </apex:column>
+                <apex:column headerValue="Type">
+                    <apex:outputText value="SD"/>
+                </apex:column>
+            </apex:pageBlockTable>
+            <br></br>
+            <center><apex:commandLink action="{!first}">First</apex:commandlink>&nbsp;&nbsp;
+            <apex:commandLink action="{!previous}" rendered="{!hasPrevious}">Prev</apex:commandlink>&nbsp;&nbsp;
+            <apex:outputText value="{!pageNumber}"/>&nbsp;&nbsp;
+            <apex:commandLink action="{!next}" rendered="{!hasNext}">Next</apex:commandlink>&nbsp;&nbsp;
+            <apex:commandLink action="{!last}">Last</apex:commandlink></center>
+            <apex:outputText value="Page {!pageNumber} of {!countPage}"/>
+        </apex:pageBlock>
+
+        <!-- Cancel Pre-Order Screen-->
+        <apex:outputPanel id="popUpWrapper"> 
+        <apex:outputPanel styleClass="modalContainer" layout="block" id="panel2"/>
+        <apex:outputPanel id="cancelOrder" styleclass="customModal">
+        <div style="width:200px;">      
+        <table style="height:20px;width:300px;background-color:#1797C0">
+            <tr style="height:35px;">
+            <apex:outputText value="Cancel pre-order" style="position:absolute;left:30%;font-weight:bolder;top:3%;font-size:15px;color:white"/>
+            </tr>
+        </table>
+        <table>
+            <tr>
+                <td>
+                <apex:outputText value="Are you sure you want to cancel the pre-order?" style="position:absolute;left:2%;top:12%;"/>
+                </td>
+            </tr>
+        </table>
+        <table>
+            <tr style="height:35px;">
+            </tr>
+            <tr>
+                <td>
+                <apex:outputText value="Reason"/>
+                </td>
+                <td>
+                <apex:outputText value="Please enter a reason for cancelling the pre-order" style="position:absolute;left:20%;top:20%;visibility:hidden;color:Red" id="error"/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <img src = "{!$Resource.mandatory}" style="height:20px;position:absolute;top:92px;"/>
+                    <apex:selectList value="{!Reason}" multiselect="false" size="1" style="width:285px;" id="reason">  
+                    <apex:selectOptions value="{!ReasonValues}"/>
+                    </apex:selectList>
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                <apex:outputText value="Comments"/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                <apex:inputField value="{!action.Description__c}" style="height:100px;width:285px;" id="desc"/>
+                </td>
+            </tr>
+            </table>
+            <table>
+            <tr>
+                <td style="width:30%">
+                </td>
+                <td style="width:10%"> 
+                <center><apex:commandButton value="OK" onclick="createAction('Prod');return false;"></apex:commandButton></center>
+                </td>
+                <td style="width:10%"> 
+                <center><apex:commandButton value="Back" onclick="closeCancelOrder('back');return false;"/></center>
+                </td>
+            </tr>
+        </table>
+        </div>
+        </apex:outputPanel>
+        </apex:outputPanel>
+        <apex:outputPanel id="actionLogged" styleclass="customModal1">
+        <div style="width:200px;">
+        <table style="height:20px;width:300px;background-color:#1797C0">
+            <tr style="height:35px;">
+            <apex:outputText value="Action Successfully Logged" style="position:absolute;left:20%;font-weight:bolder;top:4%;font-size:15px;color:white"/>
+            </tr>
+        </table>
+        <table>
+            <tr>
+                <td>
+                <apex:outputText value="The pre-order was cancelled" style="position:absolute;left:3%;top:30%;"/>
+                </td>
+            </tr>
+        </table>
+        <table>
+            <tr style="height:20px;">
+            <td>
+                <apex:outputText value="Action Logged" style="position:absolute;left:35%;top:50%;font-weight:bolder;"/>
+            </td>
+            </tr>   
+        </table>
+            <table>
+            <tr style="height:40px;"> 
+                <td style="width:10%">
+                </td>
+                <td style="width:10%"> 
+                <center><apex:commandButton value="OK" onclick="closeCancelOrder('back');return false;" style="position:absolute;top:70%;left:45%;"/></center>
+                </td>
+            </tr>
+        </table>
+        </div>
+        </apex:outputPanel>
+        <apex:outputPanel id="actionNotLogged" styleclass="customModal1">
+        <div style="width:200px;">
+        <table style="height:20px;width:300px;background-color:#1797C0">
+            <tr style="height:35px;">
+            <apex:outputText value="Success!" style="position:absolute;left:40%;font-weight:bolder;top:4%;font-size:15px;color:white"/>
+            </tr>
+        </table>
+        <table>
+            <tr>
+                <td>
+                <apex:outputText value="The pre-order was cancelled" style="position:absolute;left:3%;top:30%;"/>
+                </td>
+            </tr>
+        </table>
+        <table>
+            <tr style="height:20px;">
+            <td>
+                <apex:outputText value="Action Not Logged" style="position:absolute;left:35%;top:50%;font-weight:bolder;"/>
+            </td>
+            </tr>   
+        </table>
+            <table>
+            <tr style="height:40px;"> 
+                <td style="width:10%">
+                </td>
+                <td style="width:10%"> 
+                <center><apex:commandButton value="Add manual action" onclick="redirectToAction();return false;" style="position:absolute;top:70%;left:35%;"/></center>
+                </td>
+            </tr>
+        </table>
+        </div>
+        </apex:outputPanel>
+        <apex:outputPanel id="unsuccessfulAction" styleclass="customModal1">
+        <div style="width:200px;">
+        <table style="height:20px;width:300px;background-color:#1797C0">
+            <tr style="height:35px;">
+            <apex:outputText value="Unsuccessful action" style="position:absolute;left:20%;font-weight:bolder;top:4%;font-size:15px;color:white"/>
+            </tr>
+        </table>
+        <table>
+            <tr>
+                <td>
+                <apex:outputText value="The pre-order was not cancelled" style="position:absolute;left:3%;top:30%;"/>
+                </td>
+            </tr>
+        </table>
+        <table>
+            <tr style="height:40px;"> 
+                <td style="width:10%">
+                </td>
+                <td style="width:10%"> 
+                <center><apex:commandButton value="Log action" onclick="redirectToAction();return false;" style="position:absolute;top:70%;left:35%;"/></center>
+                </td>
+            </tr>
+        </table>
+        </div>
+        </apex:outputPanel>
+        <apex:outputPanel id="unsuccessfulAction1" styleclass="customModal1">
+        <div style="width:200px;">
+        <table style="height:20px;width:300px;background-color:#1797C0">
+            <tr style="height:35px;">
+            <apex:outputText value="Unsuccessful action" style="position:absolute;left:20%;font-weight:bolder;top:4%;font-size:15px;color:white"/>
+            </tr>
+        </table>
+        <table>
+            <tr>
+                <td>
+                <apex:outputText value="The pre-order is within 3 days of release" style="position:absolute;left:3%;top:30%;"/>
+                </td>
+            </tr>
+        </table>
+        <table>
+            <tr style="height:40px;"> 
+                <td style="width:10%"> 
+                <center><apex:commandButton value="Log action" onclick="redirectToAction();return false;" style="position:absolute;top:50%;left:35%;"/></center>
+                </td>
+            </tr>
+            <tr style="height:40px;">
+                <td style="width:10%"> 
+                <center><apex:commandButton value="Go to transaction history" style="position:absolute;top:70%;left:23%;"/></center>
+                </td>
+            </tr>
+        </table>
+        </div>
+        </apex:outputPanel>
+        <!-- Remove Entitlements Screen-->
+        <apex:outputPanel id="popUpWrapperEnt"> 
+        <apex:outputPanel styleClass="modalContainer" layout="block" id="panel3"/>
+        <apex:outputPanel id="removeEntitlement" styleclass="customModal">
+        <div style="width:200px;">      
+        <table style="height:20px;width:300px;background-color:#1797C0">
+            <tr style="height:35px;">
+            <apex:outputText value="Remove entitlement" style="position:absolute;left:25%;font-weight:bolder;top:3%;font-size:15px;color:white"/>
+            </tr>
+        </table>
+        <table>
+            <tr>
+                <td>
+                <apex:outputText value="Are you sure you want to remove entitlement?" style="position:absolute;left:3%;top:12%;"/>
+                </td>
+            </tr>
+        </table>
+        <table>
+            <tr style="height:35px;">
+            </tr>
+            <tr>
+                <td>
+                <apex:outputText value="Reason"/>
+                </td>
+                <td>
+                <apex:outputText value="Please enter a reason for removing the entitlement" style="position:absolute;left:20%;top:20%;visibility:hidden;color:Red" id="errorEnt"/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                <img src = "{!$Resource.mandatory}" style="height:20px;position:absolute;top:92px;"/>
+                <apex:selectList value="{!Reason}" multiselect="false" size="1" style="width:285px;" id="reasonEnt">                 
+                <apex:selectOptions value="{!ReasonValues}"/>
+                </apex:selectList>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                <apex:outputText value="Comments"/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                <apex:inputField value="{!action.Description__c}" style="height:100px;width:285px;" id="descEnt"/>
+                </td>
+            </tr>
+            </table>
+            <table>
+            <tr>
+                <td style="width:30%">
+                </td>
+                <td style="width:10%"> 
+                <center><apex:commandButton value="OK" onclick="createAction('Ent');return false;"></apex:commandButton></center>
+                </td>
+                <td style="width:10%"> 
+                <center><apex:commandButton value="Back" onclick="closeRemoveEntitlement('back');return false;"/></center>
+                </td>
+            </tr>
+        </table>
+        </div>
+        </apex:outputPanel>
+        </apex:outputPanel>
+        <apex:outputPanel id="entitlementRemoved" styleclass="customModal1">
+        <div style="width:200px;">
+        <table style="height:20px;width:300px;background-color:#1797C0">
+            <tr style="height:35px;">
+            <apex:outputText value="All removals successful!" style="position:absolute;left:27%;font-weight:bolder;top:3%;font-size:15px;color:white"/>
+            </tr>
+        </table>
+        <table>
+            <tr>
+                <td>
+                <apex:outputText value="The removal was successful" style="position:absolute;left:3%;top:30%;"/>
+                </td>
+            </tr>
+        </table>
+        <table>
+            <tr style="height:20px;">
+            <td>
+                <apex:outputText value="Action Logged" style="position:absolute;left:35%;top:50%;font-weight:bolder;"/>
+            </td>
+            </tr>   
+        </table>
+            <table>
+            <tr style="height:40px;"> 
+                <td style="width:10%">
+                </td>
+                <td style="width:10%"> 
+                <center><apex:commandButton value="OK" onclick="closeRemoveEntitlement('back');return false;" style="position:absolute;top:70%;left:45%;"/></center>
+                </td>
+            </tr>
+        </table>
+        </div>
+        </apex:outputPanel>
+        <apex:outputPanel id="noEntitlement" styleclass="customModal1">
+        <div style="width:200px;">
+        <table style="height:20px;width:300px;background-color:#1797C0">
+            <tr style="height:35px;">
+            <apex:outputText value="No entitlement selected" style="position:absolute;left:27%;font-weight:bolder;top:4%;font-size:15px;color:white"/>
+            </tr>
+        </table>
+        <table>
+            <tr>
+                <td>
+                <apex:outputText value="Please select one or more entitlements before clicking the Remove button" style="position:absolute;left:2%;top:30%;"/>
+                </td>
+            </tr>
+        </table>
+        <table>
+            <tr style="height:40px;"> 
+                <td style="width:10%">
+                </td>
+                <td style="width:10%"> 
+                <center><apex:commandButton value="Back" onclick="closeRemoveEntitlement('noEnt');return false;" style="position:absolute;top:70%;left:45%;"/></center>
+                </td>
+            </tr>
+        </table>
+        </div>
+        </apex:outputPanel>
+        <apex:outputPanel id="entitlementRemovedNoAction" styleclass="customModal1">
+        <div style="width:200px;">
+        <table style="height:20px;width:300px;background-color:#1797C0">
+            <tr style="height:35px;">
+            <apex:outputText value="All removals successful!" style="position:absolute;left:40%;font-weight:bolder;top:4%;font-size:15px;color:white"/>
+            </tr>
+        </table>
+        <table>
+            <tr>
+                <td>
+                <apex:outputText value="The removal was successful" style="position:absolute;left:3%;top:30%;"/>
+                </td>
+            </tr>
+        </table>
+        <table>
+            <tr style="height:20px;">
+            <td>
+                <apex:outputText value="Action Not Logged" style="position:absolute;left:30%;top:50%;font-weight:bolder;"/>
+            </td>
+            </tr>   
+        </table>
+            <table>
+            <tr style="height:40px;"> 
+                <td style="width:10%">
+                </td>
+                <td style="width:10%"> 
+                <center><apex:commandButton value="Log successful action" onclick="redirectToAction();return false;" style="position:absolute;top:70%;left:35%;"/></center>
+                </td>
+            </tr>
+        </table>
+        </div>
+        </apex:outputPanel>
+        <apex:outputPanel id="somRemFail" styleclass="customModal1">
+        <div style="width:200px;">
+        <table style="height:20px;width:300px;background-color:#1797C0">
+            <tr style="height:35px;">
+            <apex:outputText value="Some removals failed" style="position:absolute;left:30%;font-weight:bolder;top:4%;font-size:15px;color:white"/>
+            </tr>
+        </table>
+        <table>
+            <tr>
+                <td>
+                <apex:outputText value="The removal was successful but for some it failed" style="position:absolute;left:3%;top:30%;"/>
+                </td>
+            </tr>
+        </table>
+        <table>
+            <tr style="height:20px;">
+            <td>
+                <apex:outputText value="Successful action logged" style="position:absolute;left:30%;top:50%;font-weight:bolder;"/>
+            </td>
+            </tr>   
+        </table>
+            <table>
+            <tr style="height:40px;"> 
+                <td style="width:10%">
+                </td>
+                <td style="width:10%"> 
+                <center><apex:commandButton value="Log failed action" onclick="redirectToAction();return false;" style="position:absolute;top:70%;left:35%;"/></center>
+                </td>
+            </tr>
+        </table>
+        </div>
+        </apex:outputPanel>
+        <apex:outputPanel id="somRemFail2" styleclass="customModal1">
+        <div style="width:200px;">
+        <table style="height:20px;width:300px;background-color:#1797C0">
+            <tr style="height:35px;">
+            <apex:outputText value="Some removals failed" style="position:absolute;left:30%;font-weight:bolder;top:4%;font-size:15px;color:white"/>
+            </tr>
+        </table>
+        <table>
+            <tr>
+                <td>
+                <apex:outputText value="The removal was successful but for some it failed" style="position:absolute;left:3%;top:30%;"/>
+                </td>
+            </tr>
+        </table>
+        <table>
+            <tr style="height:20px;">
+            <td>
+                <apex:outputText value="Successful action not logged" style="position:absolute;left:30%;top:50%;font-weight:bolder;"/>
+            </td>
+            </tr>   
+        </table>
+            <table>
+            <tr style="height:40px;"> 
+                <td style="width:10%">
+                </td>
+                <td style="width:10%"> 
+                <center><apex:commandButton value="Log successful and failed actions" onclick="redirectToAction();return false;" style="position:absolute;top:70%;left:30%;"/></center>
+                </td>
+            </tr>
+        </table>
+        </div>
+        </apex:outputPanel>
+        <apex:outputPanel id="allRemFail" styleclass="customModal1">
+        <div style="width:200px;">
+        <table style="height:20px;width:300px;background-color:#1797C0">
+            <tr style="height:35px;">
+            <apex:outputText value="All removals failed" style="position:absolute;left:30%;font-weight:bolder;top:4%;font-size:15px;color:white"/>
+            </tr>
+        </table>
+        <table>
+            <tr>
+                <td>
+                <apex:outputText value="The removal was failed" style="position:absolute;left:3%;top:30%;"/>
+                </td>
+            </tr>
+        </table>
+        <table>
+            <tr style="height:40px;"> 
+                <td style="width:10%">
+                </td>
+                <td style="width:10%"> 
+                <center><apex:commandButton value="Log action" onclick="redirectToAction();return false;" style="position:absolute;top:70%;left:30%;"/></center>
+                </td>
+            </tr>
+        </table>
+        </div>
+        </apex:outputPanel>
+    </apex:form>  
+    <script type="text/javascript">
+        window.onload = setTitle;
+        //Sets the title of the current tab to "Digital Locker" and hide Back button in console
+        function setTitle() {
+            if(sforce.console.isInConsole())
+            {
+                sforce.console.setTabTitle('Digital Locker');
+                var backButton = document.getElementById('thePage:theForm:back');
+                backButton.style.visibility = 'hidden';
+                
+            }
+        }
+        function enableCancelScreen(){
+            document.getElementById("thePage:theForm:popUpWrapper").style.visibility = 'visible';
+            document.getElementById("thePage:theForm:panel2").style.visibility = 'visible';
+            document.getElementById("thePage:theForm:cancelOrder").style.visibility = 'visible';
+        }
+        function createAction(type){
+            var caseId = '{!caseRecord.Id}';
+            var accountId = '{!caseRecord.AccountId}';
+            var reason;
+            var desc;
+            if(type=='Prod'){
+                reason = document.getElementById("thePage:theForm:reason").value;
+                desc = document.getElementById("thePage:theForm:desc").value;
+                if(reason=='')
+                    document.getElementById("thePage:theForm:error").style.visibility = 'visible';
+                else
+                    GEN_DigitalLockerController.createAction(reason,desc,caseId,accountId,function(result, event){
+                        if(event.status) { 
+                            closeCancelOrder('ok');
+                        }
+                    });
+            }
+            else if(type=='Ent'){
+                reason = document.getElementById("thePage:theForm:reasonEnt").value;
+                desc = document.getElementById("thePage:theForm:descEnt").value;
+                if(reason=='')
+                    document.getElementById("thePage:theForm:errorEnt").style.visibility = 'visible';
+                else
+                    GEN_DigitalLockerController.createAction(reason,desc,caseId,accountId,function(result, event){
+                        if(event.status) { 
+                            closeRemoveEntitlement('ok');
+                        }
+                    });
+                    
+            }
+                
+        }
+        function closeCancelOrder(action){
+            var actionStatus = '{!actionStatus}';
+            if(action=='ok'){
+                document.getElementById("thePage:theForm:cancelOrder").style.visibility = 'hidden';
+                document.getElementById("thePage:theForm:error").style.visibility = 'hidden';
+                if(actionStatus == 'Logged')
+                    document.getElementById("thePage:theForm:actionLogged").style.visibility = 'visible';
+                else if(actionStatus == 'NotLogged')
+                    document.getElementById("thePage:theForm:actionNotLogged").style.visibility = 'visible';
+                else if(actionStatus == 'NotCancelled')
+                    document.getElementById("thePage:theForm:unsuccessfulAction").style.visibility = 'visible';
+                else if(actionStatus == 'Released')
+                    document.getElementById("thePage:theForm:unsuccessfulAction1").style.visibility = 'visible';
+            }
+            else if(action=='back'){
+                document.getElementById("thePage:theForm:popUpWrapper").style.visibility = 'hidden';
+                document.getElementById("thePage:theForm:panel2").style.visibility = 'hidden';
+                document.getElementById("thePage:theForm:cancelOrder").style.visibility = 'hidden';
+                document.getElementById("thePage:theForm:error").style.visibility = 'hidden';
+                document.getElementById("thePage:theForm:actionLogged").style.visibility = 'hidden';
+                document.getElementById("thePage:theForm:actionNotLogged").style.visibility = 'hidden';
+                document.getElementById("thePage:theForm:unsuccessfulAction").style.visibility = 'hidden';
+                document.getElementById("thePage:theForm:unsuccessfulAction1").style.visibility = 'hidden';
+                
+            }
+            //document.getElementById("thePage:theForm:error").style.visibility = 'visible';
+
+        }
+        function enableRemoveScreen(notSelected){
+            if(notSelected=='false'){
+                document.getElementById("thePage:theForm:popUpWrapperEnt").style.visibility = 'visible';
+                document.getElementById("thePage:theForm:panel3").style.visibility = 'visible';
+                document.getElementById("thePage:theForm:removeEntitlement").style.visibility = 'visible';
+            }
+            else{
+                document.getElementById("thePage:theForm:noEntitlement").style.visibility = 'visible';
+            }
+        }
+        function closeRemoveEntitlement(actionEnt){
+            var actionStatus = '{!actionStatus}';
+            if(actionEnt=='ok'){
+                document.getElementById("thePage:theForm:removeEntitlement").style.visibility = 'hidden';
+                document.getElementById("thePage:theForm:errorEnt").style.visibility = 'hidden';
+                if(actionStatus=='Removed')
+                    document.getElementById("thePage:theForm:entitlementRemoved").style.visibility = 'visible';
+                else if(actionStatus == 'SuccessfulNotLogged')
+                    document.getElementById("thePage:theForm:entitlementRemovedNoAction").style.visibility = 'visible';
+                else if(actionStatus == 'FailedNotLogged')
+                    document.getElementById("thePage:theForm:somRemFail").style.visibility = 'visible';
+                else if(actionStatus == 'NotLogged')
+                    document.getElementById("thePage:theForm:somRemFail2").style.visibility = 'visible';
+                else if(actionStatus == 'NotRemoved')
+                    document.getElementById("thePage:theForm:allRemFail").style.visibility = 'visible';
+            }
+            else if(actionEnt=='back'){
+                document.getElementById("thePage:theForm:popUpWrapperEnt").style.visibility = 'hidden';
+                document.getElementById("thePage:theForm:panel3").style.visibility = 'hidden';
+                document.getElementById("thePage:theForm:removeEntitlement").style.visibility = 'hidden';
+                document.getElementById("thePage:theForm:errorEnt").style.visibility = 'hidden';
+                document.getElementById("thePage:theForm:entitlementRemoved").style.visibility = 'hidden';
+            }
+            else if(actionEnt=='noEnt'){
+                document.getElementById("thePage:theForm:noEntitlement").style.visibility = 'hidden';
+            }
+        }
+        function redirectToAction(){
+            document.getElementById("thePage:theForm:popUpWrapper").style.visibility = 'hidden';
+            document.getElementById("thePage:theForm:panel2").style.visibility = 'hidden';
+            document.getElementById("thePage:theForm:panel3").style.visibility = 'hidden';
+            document.getElementById("thePage:theForm:removeEntitlement").style.visibility = 'hidden';
+            document.getElementById("thePage:theForm:cancelOrder").style.visibility = 'hidden';
+            document.getElementById("thePage:theForm:entitlementRemoved").style.visibility = 'hidden';
+            document.getElementById("thePage:theForm:entitlementRemovedNoAction").style.visibility = 'hidden';
+            document.getElementById("thePage:theForm:somRemFail").style.visibility = 'hidden';
+            document.getElementById("thePage:theForm:somRemFail2").style.visibility = 'hidden';
+            document.getElementById("thePage:theForm:allRemFail").style.visibility = 'hidden';
+            document.getElementById("thePage:theForm:actionLogged").style.visibility = 'hidden';
+            document.getElementById("thePage:theForm:actionNotLogged").style.visibility = 'hidden';
+            document.getElementById("thePage:theForm:unsuccessfulAction").style.visibility = 'hidden';
+            document.getElementById("thePage:theForm:unsuccessfulAction1").style.visibility = 'hidden';
+            window.open("/a00/o");
+        }
+    </script>
+    <script>    
+  $(document).ready(function()
+  {
+    $("[id$='thePageBlockTable']").tablesorter({theme: 'blue', dateFormat : "dd/mm/yyyy", headers:{0:{sorter: false}}});
+    $("[id$='thePageBlockTable2']").tablesorter({theme: 'blue', dateFormat : "dd/mm/yyyy", headers:{0:{sorter: false}}});
+  });
+</script>
+
+</apex:page>

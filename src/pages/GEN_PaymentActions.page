@@ -1,0 +1,95 @@
+<!------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+           Name:          GEN_PaymentSummary.page
+
+           Description:  Visualforce Page that opens on case page layout detail page for Payment information.
+
+ 
+
+   Date             Version         Author                             Summary of Changes
+
+   -----------      ----------   -----------------                 ---------------------------------------------------------------------------------------------------
+
+   Jan 2015         1.0           Masthan vali Patnam                      Initial Release
+
+    ------------------------------------------------------------------------------------------------------------------------------------------------------------->  
+
+<apex:page standardController="Case" extensions="GEN_PaymentActions_Extn" id="pg">
+<style>
+
+</style>
+ <apex:includeScript value="/support/console/22.0/integration.js"/>
+<script>
+
+	var caseRecId = '{!caseId}';
+         
+	function openDigitalLockerPage(){
+		if (sforce.console.isInConsole()){ 
+			//srcUp('/apex/GEN_DigitalLocker?isdtp=vw&caseId='+caseRecId); 
+			//sforce.console.openPrimaryTab(null, '/apex/GEN_DigitalLocker?isdtp=vw&caseId='+caseRecId, false,'Digital Locker');
+		  	//sforce.console.openSubtab(caseRecId, '/apex/GEN_DigitalLocker?isdtp=vw&caseId='+caseRecId, false,'Digital Locker');
+			 sforce.console.getEnclosingPrimaryTabId(openDigitalLocker);
+		} 
+		else{ 
+			window.open('/apex/GEN_DigitalLocker?caseId='+caseRecId,'_blank');
+		} 
+	}
+	var openDigitalLocker = function openSubtab(result) {
+        var primaryTabId = result.id;
+        sforce.console.openSubtab(primaryTabId , '/apex/GEN_DigitalLocker?isdtp=vw&caseId='+caseRecId, true, 'Digital Locker', null);
+    };
+	function openPaymentInformationPage(){
+		if (sforce.console.isInConsole()){ 
+			//srcUp('/apex/GEN_PaymentInformation?isdtp=vw&caseId='+caseRecId); 
+			//sforce.console.openPrimaryTab(null, '/apex/GEN_PaymentInformation?caseId='+caseRecId, false,'Payment Information');
+			sforce.console.getEnclosingPrimaryTabId(openPaymentInfo);
+		} 
+		else{ 
+			window.open('/apex/GEN_PaymentInformation?caseId='+caseRecId,'_blank');
+		} 
+	}
+	var openPaymentInfo = function openSubtab(result) {
+        var primaryTabId = result.id;
+        sforce.console.openSubtab(primaryTabId , '/apex/GEN_PaymentInformation?caseId='+caseRecId, true, 'Payment Information', null);
+    };
+	
+	/*
+	function testOpenPrimaryTab() {
+        //Open a new primary tab with the salesforce.com home page in it
+        sforce.console.openPrimaryTab(null, 'http://www.salesforce.com', false,'salesforce', openSuccess, 'salesforceTab');
+    }
+    */    
+	
+
+</script>
+
+
+<apex:form id="frm">    
+  <apex:pageBlock id="pb">
+      <apex:pageBlockSection title="Payment Summary" columns="1"> 
+                 <input type="button" value="View Payment Information" class="btn" style="margin-left: 25%;" onclick="openPaymentInformationPage();return false"/>
+           <input type="button" value="Digital Locker" class="btn" onclick="openDigitalLockerPage(); return false"/><br/>
+      <apex:pageBlockSectionItem >
+          <apex:outputText >Default Payment Card:</apex:outputText>
+          <apex:outputLabel > XXXXXXXXXXXXXXXXXX</apex:outputLabel>
+      
+      </apex:pageBlockSectionItem>
+           
+      <apex:pageBlockSectionItem >
+          <apex:outputText >Recent Transaction History:</apex:outputText>
+          <apex:outputLabel > </apex:outputLabel>
+      
+      </apex:pageBlockSectionItem>
+
+
+           <apex:pageBlockTable value="{!wrpLst}" var="w">
+               <apex:column headerValue="Date" value="{!w.dt}"/>
+               <apex:column headerValue="Title" value="{!w.title}"/>
+               <apex:column headerValue="Amount" value="{!w.amount}"/>
+           </apex:pageBlockTable>
+           
+           </apex:pageBlockSection>
+  </apex:pageBlock>
+  
+ </apex:form> 
+</apex:page>

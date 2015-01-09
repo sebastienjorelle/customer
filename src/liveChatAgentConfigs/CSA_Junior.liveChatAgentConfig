@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LiveChatAgentConfig xmlns="http://soap.sforce.com/2006/04/metadata">
+    <capacity>2</capacity>
+    <criticalWaitTime>5</criticalWaitTime>
+    <enableAgentFileTransfer>false</enableAgentFileTransfer>
+    <enableAgentSneakPeek>true</enableAgentSneakPeek>
+    <enableAutoAwayOnDecline>true</enableAutoAwayOnDecline>
+    <enableChatConferencing>false</enableChatConferencing>
+    <enableChatMonitoring>true</enableChatMonitoring>
+    <enableChatTransfer>true</enableChatTransfer>
+    <enableLogoutSound>false</enableLogoutSound>
+    <enableNotifications>true</enableNotifications>
+    <enableRequestSound>false</enableRequestSound>
+    <enableSneakPeek>false</enableSneakPeek>
+    <enableWhisperMessage>true</enableWhisperMessage>
+    <label>CSA Junior</label>
+    <supervisorDefaultAgentStatusFilter>Online</supervisorDefaultAgentStatusFilter>
+    <supervisorSkills>
+        <skill>BBC_Store_UK</skill>
+    </supervisorSkills>
+    <transferableSkills>
+        <skill>BBC_Store_UK</skill>
+    </transferableSkills>
+</LiveChatAgentConfig>

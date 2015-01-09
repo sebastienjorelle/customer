@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DataCategoryGroup xmlns="http://soap.sforce.com/2006/04/metadata">
+    <active>true</active>
+    <dataCategory>
+        <dataCategory>
+            <label>UK</label>
+            <name>UK</name>
+        </dataCategory>
+        <dataCategory>
+            <label>Australia</label>
+            <name>Australia_New_Zealand</name>
+        </dataCategory>
+        <dataCategory>
+            <label>New Zealand</label>
+            <name>New_Zealand</name>
+        </dataCategory>
+        <label>All</label>
+        <name>All</name>
+    </dataCategory>
+    <description>Knowledge articles tagged by geographical area</description>
+    <label>Region</label>
+    <objectUsage>
+        <object>KnowledgeArticleVersion</object>
+    </objectUsage>
+</DataCategoryGroup>

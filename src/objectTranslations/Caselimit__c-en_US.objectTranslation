@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>CS_Caselimit</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Caselimit</value>
+    </caseValues>
+    <fields>
+        <label><!-- Case Reopen limit --></label>
+        <name>Case_Reopen_limit__c</name>
+    </fields>
+    <fields>
+        <label><!-- First Response SLA (Hours) --></label>
+        <name>First_Response_SLA_Hours__c</name>
+    </fields>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AssignmentRules xmlns="http://soap.sforce.com/2006/04/metadata">
+    <assignmentRule>
+        <fullName>UK case assignment rules</fullName>
+        <active>true</active>
+        <ruleEntry>
+            <assignedTo>Account_Management</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <criteriaItems>
+                <field>Case.Category__c</field>
+                <operation>equals</operation>
+                <value>Getting started,Manage your account</value>
+            </criteriaItems>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>Technical_Issues</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <criteriaItems>
+                <field>Case.Category__c</field>
+                <operation>equals</operation>
+                <value>Using the service,Technical issues</value>
+            </criteriaItems>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>Payment_Inquiries</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <criteriaItems>
+                <field>Case.Category__c</field>
+                <operation>equals</operation>
+                <value>&quot;Billing, vouchers and promotions&quot;</value>
+            </criteriaItems>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>Incorrectly_raised</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <formula>TRUE</formula>
+        </ruleEntry>
+    </assignmentRule>
+</AssignmentRules>

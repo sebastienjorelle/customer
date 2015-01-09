@@ -1,0 +1,6 @@
+Hi {!Contact.FirstName},
+
+Case {!Case.CaseNumber} has been closed.
+
+Regards,
+{!Case.OwnerFullName}

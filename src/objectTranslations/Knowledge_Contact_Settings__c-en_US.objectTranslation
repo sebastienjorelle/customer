@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Knowledge Contact Settings</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Knowledge Contact Settings</value>
+    </caseValues>
+    <fields>
+        <label><!-- Active --></label>
+        <name>Active__c</name>
+    </fields>
+    <fields>
+        <label><!-- Authentication Required --></label>
+        <name>Authentication_Required__c</name>
+    </fields>
+    <fields>
+        <label><!-- Callback --></label>
+        <name>Callback__c</name>
+    </fields>
+    <fields>
+        <label><!-- Community --></label>
+        <name>Community__c</name>
+    </fields>
+    <fields>
+        <label><!-- Knowledge Sub-Topic --></label>
+        <name>Knowledge_Sub_Topic__c</name>
+        <picklistValues>
+            <masterLabel>About BBC Store</masterLabel>
+            <translation><!-- About BBC Store --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>About BBC iD</masterLabel>
+            <translation><!-- About BBC iD --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Android</masterLabel>
+            <translation><!-- Android --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>BBC Shop</masterLabel>
+            <translation><!-- BBC Shop --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>BBC iPlayer</masterLabel>
+            <translation><!-- BBC iPlayer --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Billing Issues</masterLabel>
+            <translation><!-- Billing Issues --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Buffering and Playback Issues</masterLabel>
+            <translation><!-- Buffering and Playback Issues --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Buying Content</masterLabel>
+            <translation><!-- Buying Content --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Close Your Store Account</masterLabel>
+            <translation><!-- Close Your Store Account --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Contacting Us</masterLabel>
+            <translation><!-- Contacting Us --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Content Missing in My Programmes</masterLabel>
+            <translation><!-- Content Missing in My Programmes --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Continuous Loading</masterLabel>
+            <translation><!-- Continuous Loading --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Cookies</masterLabel>
+            <translation><!-- Cookies --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Error Messages</masterLabel>
+            <translation><!-- Error Messages --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Forgotten Email Address, Password or PIN</masterLabel>
+            <translation><!-- Forgotten Email Address, Password or PIN --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Locked Account</masterLabel>
+            <translation><!-- Locked Account --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Mac</masterLabel>
+            <translation><!-- Mac --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Manage Your Details</masterLabel>
+            <translation><!-- Manage Your Details --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Managing Devices</masterLabel>
+            <translation><!-- Managing Devices --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>My Device Isn&apos;t Supported</masterLabel>
+            <translation><!-- My Device Isn&apos;t Supported --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>My Programmes</masterLabel>
+            <translation><!-- My Programmes --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>PC</masterLabel>
+            <translation><!-- PC --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Purchase History</masterLabel>
+            <translation><!-- Purchase History --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Rating and Reviewing Content</masterLabel>
+            <translation><!-- Rating and Reviewing Content --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Refunds</masterLabel>
+            <translation><!-- Refunds --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Reporting Stolen Devices</masterLabel>
+            <translation><!-- Reporting Stolen Devices --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Reporting Suspicious Activity</masterLabel>
+            <translation><!-- Reporting Suspicious Activity --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Shop</masterLabel>
+            <translation><!-- Shop --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Signing Up</masterLabel>
+            <translation><!-- Signing Up --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Streaming Quality</masterLabel>
+            <translation><!-- Streaming Quality --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Support Browsers/Operating Systems</masterLabel>
+            <translation><!-- Support Browsers/Operating Systems --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Viewing Problems</masterLabel>
+            <translation><!-- Viewing Problems --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Watching Content</masterLabel>
+            <translation><!-- Watching Content --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>What happens if iPlayer is down?</masterLabel>
+            <translation><!-- What happens if iPlayer is down? --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>iOS</masterLabel>
+            <translation><!-- iOS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>iPlayer</masterLabel>
+            <translation><!-- iPlayer --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Knowledge Topic --></label>
+        <name>Knowledge_Topic__c</name>
+        <picklistValues>
+            <masterLabel>Billing, Vouchers and Promotions</masterLabel>
+            <translation><!-- Billing, Vouchers and Promotions --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Getting Started</masterLabel>
+            <translation><!-- Getting Started --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Manage Your Account</masterLabel>
+            <translation><!-- Manage Your Account --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Technical Issues</masterLabel>
+            <translation><!-- Technical Issues --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Using the Service</masterLabel>
+            <translation><!-- Using the Service --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- LiveChat --></label>
+        <name>LiveChat__c</name>
+    </fields>
+    <fields>
+        <label><!-- Region --></label>
+        <name>Region__c</name>
+        <picklistValues>
+            <masterLabel>Australia</masterLabel>
+            <translation><!-- Australia --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>New Zealand</masterLabel>
+            <translation><!-- New Zealand --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>UK</masterLabel>
+            <translation><!-- UK --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Webform --></label>
+        <name>Webform__c</name>
+    </fields>
+    <layouts>
+        <layout>Knowledge Contact Settings Layout</layout>
+        <sections>
+            <label><!-- Authentication --></label>
+            <section>Authentication</section>
+        </sections>
+        <sections>
+            <label><!-- Contact Channels --></label>
+            <section>Contact Channels</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Knowledge Categories --></label>
+            <section>Knowledge Categories</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage><!-- You have marked Knowledge Contact Settings as active. Please select a contact channel. --></errorMessage>
+        <name>Active_Contact_Channel_Selected</name>
+    </validationRules>
+</CustomObjectTranslation>

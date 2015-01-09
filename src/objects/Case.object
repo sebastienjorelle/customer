@@ -1,0 +1,3615 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>ChangeStatus</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CloneAsChild</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CloseCase</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Follow</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>MassClose</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>NewCase</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <businessProcesses>
+        <fullName>Case Support Process</fullName>
+        <isActive>true</isActive>
+        <values>
+            <fullName>Closed</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>In Progress</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>New</fullName>
+            <default>true</default>
+        </values>
+        <values>
+            <fullName>Pending - action</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pending - awaiting customer info</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pending - escalated</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pending - solution sent</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Reopened</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Updated by customer</fullName>
+            <default>false</default>
+        </values>
+    </businessProcesses>
+    <businessProcesses>
+        <fullName>Closed Case Support Process</fullName>
+        <isActive>true</isActive>
+        <values>
+            <fullName>Closed</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Reopened</fullName>
+            <default>true</default>
+        </values>
+    </businessProcesses>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <enableFeeds>true</enableFeeds>
+    <fields>
+        <fullName>AccountId</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>AssetId</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Browser__c</fullName>
+        <externalId>false</externalId>
+        <label>Browser</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Internet Explorer</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Firefox</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Chrome</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Safari</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>BusinessHoursId</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Case_Age_In_Business_Hours__c</fullName>
+        <description>The total case age in business hours from open to close.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The total case age in business hours from open to close.</inlineHelpText>
+        <label>Case Age In Business Hours</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>3</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Case_Age__c</fullName>
+        <externalId>false</externalId>
+        <formula>TEXT( FLOOR(  Case_Age_in_Days__c ) ) &amp; &quot; days &quot;
+  &amp; TEXT( FLOOR( MOD(  Case_Age_in_Days__c * 24, 24 ) ) ) &amp; &quot; hours &quot;
+  &amp; TEXT( ROUND( MOD(  Case_Age_in_Days__c  * 24 * 60, 60 ), 0 ) ) &amp; &quot; minutes&quot;</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Case Age</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Case_Age_in_Days__c</fullName>
+        <externalId>false</externalId>
+        <formula>Case_Age_In_Business_Hours__c  / 24</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Case Age in Days</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>4</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Case_Close_Reason__c</fullName>
+        <externalId>false</externalId>
+        <label>Case Close Reason</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Resolved by advisor</fullName>
+                <default>true</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Resolved by dev fix</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Duplicate</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Incorrectly raised</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Insufficient info</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>No customer response</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Internal testing</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Case_Origin_Image__c</fullName>
+        <description>Displays an image based of the case origin picklist value selected</description>
+        <externalId>false</externalId>
+        <formula>IMAGE(
+        CASE(  Origin , &quot;Email&quot;, &quot;img/icon/mail24.png&quot;, 
+                        &quot;Web Form&quot;, &quot;img/icon/form24.png&quot;, 
+                        &quot;Live Chat&quot;, &quot;img/icon/people24.png&quot;, 
+                        &quot;Community&quot;, &quot;img/icon/custom51_100/globe24.png&quot;,
+                        &quot;Social&quot;, &quot;img/icon/custom51_100/whistle24.png&quot;,
+                        &quot;/s.gif&quot;
+             ), &quot;error&quot;
+       )</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Case Origin</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Category__c</fullName>
+        <externalId>false</externalId>
+        <label>Category</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Getting started</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Manage your account</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Using the service</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Technical issues</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Billing, vouchers and promotions</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Invalid Case</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>ClosedDate</fullName>
+        <trackTrending>false</trackTrending>
+    </fields>
+    <fields>
+        <fullName>Comments</fullName>
+        <trackTrending>false</trackTrending>
+    </fields>
+    <fields>
+        <fullName>Complaint__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Complaint</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>ContactEmail</fullName>
+        <trackTrending>false</trackTrending>
+    </fields>
+    <fields>
+        <fullName>ContactFax</fullName>
+        <trackTrending>false</trackTrending>
+    </fields>
+    <fields>
+        <fullName>ContactId</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>ContactMobile</fullName>
+        <trackTrending>false</trackTrending>
+    </fields>
+    <fields>
+        <fullName>ContactPhone</fullName>
+        <trackTrending>false</trackTrending>
+    </fields>
+    <fields>
+        <fullName>Create_new_case_email__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>this field is use to trigger an email notification to the contact if the case is outside of the reopening period</description>
+        <externalId>false</externalId>
+        <label>Create new case email</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>DateDiff__c</fullName>
+        <externalId>false</externalId>
+        <formula>(First_Response_Sent_DateTime__c-First_Response_Due__c)*24*60</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>DateDiff</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>5</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Description</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+    </fields>
+    <fields>
+        <fullName>Device__c</fullName>
+        <externalId>false</externalId>
+        <label>Device</label>
+        <picklist>
+            <picklistValues>
+                <fullName>iOS</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Android</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>PC</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>MAC</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Draft_Article_ID__c</fullName>
+        <externalId>false</externalId>
+        <label>Draft Article ID</label>
+        <length>10</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>EntitlementId</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Error_Code__c</fullName>
+        <externalId>false</externalId>
+        <label>Error Code</label>
+        <picklist>
+            <picklistValues>
+                <fullName>00000000</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>00000001</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>00000010</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>00000011</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>00000100</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>First_Response_Due__c</fullName>
+        <externalId>false</externalId>
+        <formula>CreatedDate +  1/(24/ First_Response_SLA_Hours__c )</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>First Response Due</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>First_Response_Duetime__c</fullName>
+        <externalId>false</externalId>
+        <label>First Response Due</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>First_Response_SLA_Hours__c</fullName>
+        <description>Number of hours by which first response email needs to be sent</description>
+        <externalId>false</externalId>
+        <label>First Response SLA (Hours)</label>
+        <precision>6</precision>
+        <required>false</required>
+        <scale>3</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>First_Response_Sent_DateTime__c</fullName>
+        <description>Date/time when first email sent to customer</description>
+        <externalId>false</externalId>
+        <label>First Response Sent Date/Time</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>First_Response_Sent__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Captures when agent sends first email to customer</description>
+        <externalId>false</externalId>
+        <label>First Response Sent</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>IsClosedOnCreate</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+    </fields>
+    <fields>
+        <fullName>IsEscalated</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+    </fields>
+    <fields>
+        <fullName>IsStopped</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+    </fields>
+    <fields>
+        <fullName>Last_Status_Change__c</fullName>
+        <description>Stores the last time the status changed -- used by the Case Business Hours Tools package.</description>
+        <externalId>false</externalId>
+        <label>Last Status Change</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>MilestoneStatus</fullName>
+        <trackTrending>false</trackTrending>
+    </fields>
+    <fields>
+        <fullName>MilestoneStatusIcon</fullName>
+        <trackTrending>false</trackTrending>
+    </fields>
+    <fields>
+        <fullName>OS__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Operating System</inlineHelpText>
+        <label>OS</label>
+        <picklist>
+            <controllingField>Device__c</controllingField>
+            <picklistValues>
+                <fullName>Windows 8</fullName>
+                <controllingFieldValues>PC</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Windows 7</fullName>
+                <controllingFieldValues>PC</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Windows Vista</fullName>
+                <controllingFieldValues>PC</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>OS X Yosemite</fullName>
+                <controllingFieldValues>MAC</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>OS X Mavericks</fullName>
+                <controllingFieldValues>MAC</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>OS X Mountain Lion</fullName>
+                <controllingFieldValues>MAC</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Other</fullName>
+                <controllingFieldValues>Android</controllingFieldValues>
+                <controllingFieldValues>MAC</controllingFieldValues>
+                <controllingFieldValues>Other</controllingFieldValues>
+                <controllingFieldValues>PC</controllingFieldValues>
+                <controllingFieldValues>iOS</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>iOS 8</fullName>
+                <controllingFieldValues>iOS</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>iOS 7</fullName>
+                <controllingFieldValues>iOS</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>OS X Lion</fullName>
+                <controllingFieldValues>MAC</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Lollipop</fullName>
+                <controllingFieldValues>Android</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>KitKat</fullName>
+                <controllingFieldValues>Android</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Jelly Bean</fullName>
+                <controllingFieldValues>Android</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Windows XP</fullName>
+                <controllingFieldValues>PC</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Windows 8.1</fullName>
+                <controllingFieldValues>PC</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>OS X Snow Leopard</fullName>
+                <controllingFieldValues>MAC</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Open_Actions__c</fullName>
+        <externalId>false</externalId>
+        <label>Open Actions</label>
+        <summaryFilterItems>
+            <field>Action__c.Status__c</field>
+            <operation>notEqual</operation>
+            <value>Completed</value>
+        </summaryFilterItems>
+        <summaryForeignKey>Action__c.Case__c</summaryForeignKey>
+        <summaryOperation>count</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Origin</fullName>
+        <picklist>
+            <picklistValues>
+                <fullName>Email</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Web form</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Live Chat</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Community</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Social</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Other_Error_Code__c</fullName>
+        <externalId>false</externalId>
+        <label>Other Error Code</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Other_device_description__c</fullName>
+        <externalId>false</externalId>
+        <label>Other device description</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Overdue_Action_Count__c</fullName>
+        <description>Counts the amount of action related to a case with the overdue checkbox checked</description>
+        <externalId>false</externalId>
+        <label>Overdue Action Count</label>
+        <summaryFilterItems>
+            <field>Action__c.Overdue__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </summaryFilterItems>
+        <summaryFilterItems>
+            <field>Action__c.Status__c</field>
+            <operation>notEqual</operation>
+            <value>Completed</value>
+        </summaryFilterItems>
+        <summaryForeignKey>Action__c.Case__c</summaryForeignKey>
+        <summaryOperation>count</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Overdue_Actions__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF ( 
+ Overdue_Action_Count__c  &gt; 0, 
+IMAGE (&quot;/img/msg_icons/error24.png&quot;, &quot;Overdue&quot;), 
+IMAGE (&quot;/img/msg_icons/confirm24.png&quot;, &quot;On time&quot;) 
+)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Overdue Actions</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>OwnerId</fullName>
+        <trackFeedHistory>true</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>ParentId</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Priority</fullName>
+        <picklist>
+            <picklistValues>
+                <fullName>High</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Medium</fullName>
+                <default>true</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Low</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackFeedHistory>true</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>ProductId</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Query_Topic__c</fullName>
+        <externalId>false</externalId>
+        <label>Query Topic</label>
+        <picklist>
+            <controllingField>Sub_Category__c</controllingField>
+            <picklistValues>
+                <fullName>Abandoned Chat</fullName>
+                <controllingFieldValues>Customer</controllingFieldValues>
+                <controllingFieldValues>Internal</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Junk email</fullName>
+                <controllingFieldValues>Customer</controllingFieldValues>
+                <controllingFieldValues>Internal</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Duplicate</fullName>
+                <controllingFieldValues>Customer</controllingFieldValues>
+                <controllingFieldValues>Internal</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Test</fullName>
+                <controllingFieldValues>Customer</controllingFieldValues>
+                <controllingFieldValues>Internal</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Created in error</fullName>
+                <controllingFieldValues>Customer</controllingFieldValues>
+                <controllingFieldValues>Internal</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Re_open_limit__c</fullName>
+        <externalId>false</externalId>
+        <formula>ClosedDate +  $Setup.Caselimit__c.Case_Reopen_limit__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Re-open limit</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Reason</fullName>
+        <picklist>
+            <picklistValues>
+                <fullName>User didn&apos;t attend training</fullName>
+                <cssExposed>false</cssExposed>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Complex functionality</fullName>
+                <cssExposed>false</cssExposed>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Existing problem</fullName>
+                <cssExposed>false</cssExposed>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Instructions not clear</fullName>
+                <cssExposed>false</cssExposed>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>New problem</fullName>
+                <cssExposed>false</cssExposed>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Reopen_Reason__c</fullName>
+        <externalId>false</externalId>
+        <label>Reopen Reason</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Bounceback</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Closed in error</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Thank you email / Autoreply</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Unhappy with resolution</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>New issue</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>SLA_Status_Icon__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF (OR(SLA_Status__c = &quot;OK - sent before due&quot;,SLA_Status__c = &quot;OK - date not passed&quot;), IMAGE (&quot;/img/msg_icons/confirm24.png&quot;, &quot;OK&quot;),
+IF (SLA_Status__c = &quot;WARNING - SLA Near&quot;, IMAGE (&quot;/img/msg_icons/warning24.png&quot;, &quot;Warning&quot;),
+IMAGE (&quot;/img/msg_icons/error24.png&quot;, &quot;Violated&quot;)
+)
+)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>SLA Status</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>SLA_Status__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(
+
+First_Response_Sent_DateTime__c &lt; First_Response_Due__c , &quot;OK - sent before due&quot;,
+   
+IF(AND(TimeTillSLA__c &gt; 20,First_Response_Sent__c = false) , &quot;OK - date not passed&quot;, 
+
+IF(AND(AND(TimeTillSLA__c &gt;0, TimeTillSLA__c &lt;= 20), First_Response_Sent__c = false), &quot;WARNING - SLA Near&quot;, 
+
+IF(AND(TimeTillSLA__c &lt; 0, First_Response_Sent__c = false), &quot;Violated - not sent&quot;,
+
+IF(First_Response_Sent_DateTime__c &gt; First_Response_Due__c, &quot;Violated - sent after due&quot;, 
+  
+&quot;UNKNOWN&quot;)))))</formula>
+        <label>SLA Status</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>SlaExitDate</fullName>
+        <trackTrending>false</trackTrending>
+    </fields>
+    <fields>
+        <fullName>SlaStartDate</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+    </fields>
+    <fields>
+        <fullName>Status</fullName>
+        <picklist>
+            <picklistValues>
+                <fullName>New</fullName>
+                <closed>false</closed>
+                <default>true</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>In Progress</fullName>
+                <closed>false</closed>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Pending - awaiting customer info</fullName>
+                <closed>false</closed>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Pending - action</fullName>
+                <closed>false</closed>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Pending - escalated</fullName>
+                <closed>false</closed>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Pending - solution sent</fullName>
+                <closed>false</closed>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Updated by customer</fullName>
+                <closed>false</closed>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Closed</fullName>
+                <closed>true</closed>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Reopened</fullName>
+                <closed>false</closed>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>StopStartDate</fullName>
+        <trackTrending>false</trackTrending>
+    </fields>
+    <fields>
+        <fullName>Sub_Category__c</fullName>
+        <externalId>false</externalId>
+        <label>Sub-Category</label>
+        <picklist>
+            <controllingField>Category__c</controllingField>
+            <picklistValues>
+                <fullName>About BBC Store</fullName>
+                <controllingFieldValues>Getting started</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Signing up</fullName>
+                <controllingFieldValues>Getting started</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>My Programmes</fullName>
+                <controllingFieldValues>Manage your account</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Manage your details</fullName>
+                <controllingFieldValues>Manage your account</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Refunds</fullName>
+                <controllingFieldValues>Manage your account</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Forgotten email address, password, or PIN</fullName>
+                <controllingFieldValues>Manage your account</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>About BBC iD</fullName>
+                <controllingFieldValues>Manage your account</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Managing devices</fullName>
+                <controllingFieldValues>Manage your account</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Close Store account</fullName>
+                <controllingFieldValues>Manage your account</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Account is locked</fullName>
+                <controllingFieldValues>Manage your account</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Reporting suspicious activity/stolen devices</fullName>
+                <controllingFieldValues>Manage your account</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Purchase history</fullName>
+                <controllingFieldValues>Manage your account</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Billing issues</fullName>
+                <controllingFieldValues>Manage your account</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Content has disappeared from My Programmes</fullName>
+                <controllingFieldValues>Manage your account</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Buying content</fullName>
+                <controllingFieldValues>Using the service</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Watching</fullName>
+                <controllingFieldValues>Using the service</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Rating and reviewing content</fullName>
+                <controllingFieldValues>Using the service</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Contacting us</fullName>
+                <controllingFieldValues>Using the service</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Cookies</fullName>
+                <controllingFieldValues>Using the service</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>PC</fullName>
+                <controllingFieldValues>Technical issues</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Mac</fullName>
+                <controllingFieldValues>Technical issues</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>iOS</fullName>
+                <controllingFieldValues>Technical issues</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Android</fullName>
+                <controllingFieldValues>Technical issues</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Streaming quality</fullName>
+                <controllingFieldValues>Technical issues</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Supported browsers/OS</fullName>
+                <controllingFieldValues>Technical issues</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>My device is not supported</fullName>
+                <controllingFieldValues>Technical issues</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>iPlayer</fullName>
+                <controllingFieldValues>Getting started</controllingFieldValues>
+                <controllingFieldValues>Technical issues</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>What happens if iplayer is down?</fullName>
+                <controllingFieldValues>Technical issues</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Shop</fullName>
+                <controllingFieldValues>Getting started</controllingFieldValues>
+                <controllingFieldValues>Technical issues</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Continuous loading</fullName>
+                <controllingFieldValues>Technical issues</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Error messages</fullName>
+                <controllingFieldValues>Technical issues</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Viewing problems</fullName>
+                <controllingFieldValues>Technical issues</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Buffering and blocky playback issues</fullName>
+                <controllingFieldValues>Technical issues</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Internal</fullName>
+                <controllingFieldValues>Invalid Case</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Customer</fullName>
+                <controllingFieldValues>Invalid Case</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Subject</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+    </fields>
+    <fields>
+        <fullName>SuppliedCompany</fullName>
+        <trackTrending>false</trackTrending>
+    </fields>
+    <fields>
+        <fullName>SuppliedEmail</fullName>
+        <trackTrending>false</trackTrending>
+    </fields>
+    <fields>
+        <fullName>SuppliedName</fullName>
+        <trackTrending>false</trackTrending>
+    </fields>
+    <fields>
+        <fullName>SuppliedPhone</fullName>
+        <trackTrending>false</trackTrending>
+    </fields>
+    <fields>
+        <fullName>Thread_ID__c</fullName>
+        <externalId>false</externalId>
+        <formula>&apos;ref:_&apos; &amp; LEFT($Organization.Id, 4) &amp;  MID($Organization.Id,10,6) &amp; &apos;._&apos; &amp; LEFT( Id, 4) &amp;  MID(Id,10,6) &amp; &apos;:ref&apos;</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Thread ID</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>TimeTillSLA__c</fullName>
+        <externalId>false</externalId>
+        <formula>( First_Response_Duetime__c -NOW())*24*60</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>TimeTillSLA</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>18</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Time_With_BBC_in_days__c</fullName>
+        <externalId>false</externalId>
+        <formula>Time_With_Support__c  / 24</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Time With BBC in days</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>4</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Time_With_Customer__c</fullName>
+        <defaultValue>0</defaultValue>
+        <description>The time in business hours that this case spent in the hands of the customer.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The time in business hours that this case spent in the hands of the customer.</inlineHelpText>
+        <label>Time With Customer</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>3</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Time_With_Customer_in_Days__c</fullName>
+        <externalId>false</externalId>
+        <formula>Time_With_Customer__c   / 24</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Time With Customer in Days</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>4</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Time_With_Support__c</fullName>
+        <defaultValue>0</defaultValue>
+        <description>The time in business hours that this case spent with support.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The time in business hours that this case spent with support.</inlineHelpText>
+        <label>Time With Support</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>3</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Time_with_BBC_text__c</fullName>
+        <externalId>false</externalId>
+        <formula>TEXT( FLOOR( Time_With_BBC_in_days__c ) ) &amp; &quot; days &quot;
+&amp; TEXT( FLOOR( MOD( Time_With_BBC_in_days__c * 24, 24 ) ) ) &amp; &quot; hours &quot;
+&amp; TEXT( ROUND( MOD(  Time_With_BBC_in_days__c * 24 * 60, 60 ), 0 ) ) &amp; &quot; minutes&quot;</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Time with BBC</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Time_with_Customer_text__c</fullName>
+        <externalId>false</externalId>
+        <formula>TEXT( FLOOR(  Time_With_Customer_in_Days__c  ) ) &amp; &quot; days &quot;
+&amp; TEXT( FLOOR( MOD(  Time_With_Customer_in_Days__c  * 24, 24 ) ) ) &amp; &quot; hours &quot;
+&amp; TEXT( ROUND( MOD(  Time_With_Customer_in_Days__c  * 24 * 60, 60 ), 0 ) ) &amp; &quot; minutes&quot;</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Time with Customer</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Type</fullName>
+        <picklist>
+            <picklistValues>
+                <fullName>Problem</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Feature Request</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Question</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <listViews>
+        <fullName>Account_Management_Case</fullName>
+        <columns>ACCOUNT.NAME</columns>
+        <columns>CASES.STATUS</columns>
+        <columns>CASES.CREATED_DATE</columns>
+        <columns>Category__c</columns>
+        <columns>Sub_Category__c</columns>
+        <columns>CASES.ORIGIN</columns>
+        <filterScope>Queue</filterScope>
+        <filters>
+            <field>CASES.CLOSED</field>
+            <operation>equals</operation>
+            <value>0</value>
+        </filters>
+        <label>_Account Management</label>
+        <queue>Account_Management</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>AllClosedCases</fullName>
+        <columns>CASES.CASE_NUMBER</columns>
+        <columns>ACCOUNT.NAME</columns>
+        <columns>CASES.STATUS</columns>
+        <columns>CASES.CREATED_DATE</columns>
+        <columns>CASES.CLOSED_DATE</columns>
+        <columns>Category__c</columns>
+        <columns>Sub_Category__c</columns>
+        <columns>CASES.ORIGIN</columns>
+        <columns>OWNER_NAME</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>CASES.CLOSED</field>
+            <operation>equals</operation>
+            <value>1</value>
+        </filters>
+        <label>All Closed Cases</label>
+        <sharedTo>
+            <role>BBC_Management</role>
+            <role>Contact_Centre_Management</role>
+            <role>Global</role>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>AllOpenCases</fullName>
+        <columns>CASES.CASE_NUMBER</columns>
+        <columns>ACCOUNT.NAME</columns>
+        <columns>CASES.STATUS</columns>
+        <columns>CASES.CREATED_DATE</columns>
+        <columns>Category__c</columns>
+        <columns>Sub_Category__c</columns>
+        <columns>CASES.ORIGIN</columns>
+        <columns>OWNER_NAME</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>CASES.CLOSED</field>
+            <operation>equals</operation>
+            <value>0</value>
+        </filters>
+        <label>All Open Cases</label>
+        <sharedTo>
+            <role>BBC_Management</role>
+            <role>Contact_Centre_Management</role>
+            <role>Global</role>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>Cases_Approaching_SLA</fullName>
+        <columns>CASES.CASE_NUMBER</columns>
+        <columns>NAME</columns>
+        <columns>CASES.SUBJECT</columns>
+        <columns>CASES.STATUS</columns>
+        <columns>CASES.CREATED_DATE</columns>
+        <columns>OWNER_NAME</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>SLA_Status_Icon__c</field>
+            <operation>equals</operation>
+            <value>WARNING - SLA Near</value>
+        </filters>
+        <label>Cases Approaching SLA</label>
+    </listViews>
+    <listViews>
+        <fullName>Cases_with_Missed_SLA</fullName>
+        <columns>CASES.CASE_NUMBER</columns>
+        <columns>NAME</columns>
+        <columns>CASES.SUBJECT</columns>
+        <columns>CASES.STATUS</columns>
+        <columns>CASES.CREATED_DATE</columns>
+        <columns>OWNER_NAME</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>SLA_Status__c</field>
+            <operation>equals</operation>
+            <value>Violated - not sent</value>
+        </filters>
+        <label>Cases with Missed SLA</label>
+    </listViews>
+    <listViews>
+        <fullName>Incorrectly_raised_cases</fullName>
+        <columns>CASES.CASE_NUMBER</columns>
+        <columns>ACCOUNT.NAME</columns>
+        <columns>CASES.STATUS</columns>
+        <columns>CASES.CREATED_DATE</columns>
+        <columns>Category__c</columns>
+        <columns>Sub_Category__c</columns>
+        <columns>CASES.ORIGIN</columns>
+        <filterScope>Queue</filterScope>
+        <filters>
+            <field>CASES.ORIGIN</field>
+            <operation>equals</operation>
+            <value>Email</value>
+        </filters>
+        <label>Incorrectly raised cases</label>
+        <queue>Incorrectly_raised</queue>
+        <sharedTo>
+            <role>BBC_Management</role>
+            <role>Contact_Centre_Management</role>
+            <role>Global</role>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>MyOpenCases</fullName>
+        <columns>CASES.CASE_NUMBER</columns>
+        <columns>ACCOUNT.NAME</columns>
+        <columns>CASES.SUBJECT</columns>
+        <columns>CASES.STATUS</columns>
+        <columns>Category__c</columns>
+        <columns>Sub_Category__c</columns>
+        <columns>CASES.CREATED_DATE</columns>
+        <columns>CASES.LAST_UPDATE</columns>
+        <filterScope>Mine</filterScope>
+        <filters>
+            <field>CASES.CLOSED</field>
+            <operation>equals</operation>
+            <value>0</value>
+        </filters>
+        <label>My Open Cases</label>
+    </listViews>
+    <listViews>
+        <fullName>My_Case_Team_Open_Cases</fullName>
+        <columns>CASES.CASE_NUMBER</columns>
+        <columns>ACCOUNT.NAME</columns>
+        <columns>CASES.SUBJECT</columns>
+        <columns>CASES.STATUS</columns>
+        <columns>Category__c</columns>
+        <columns>Sub_Category__c</columns>
+        <columns>CASES.CREATED_DATE</columns>
+        <columns>CASES.LAST_UPDATE</columns>
+        <columns>OWNER_NAME</columns>
+        <filterScope>Team</filterScope>
+        <filters>
+            <field>CASES.CLOSED</field>
+            <operation>equals</operation>
+            <value>0</value>
+        </filters>
+        <label>My Case Team Open Cases</label>
+        <sharedTo>
+            <role>X2nd_Line_Support</role>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>My_Cases_with_Open_Actions</fullName>
+        <columns>CASES.CASE_NUMBER</columns>
+        <columns>ACCOUNT.NAME</columns>
+        <columns>CASES.SUBJECT</columns>
+        <columns>CASES.STATUS</columns>
+        <columns>Category__c</columns>
+        <columns>Sub_Category__c</columns>
+        <columns>Open_Actions__c</columns>
+        <columns>CASES.CREATED_DATE</columns>
+        <columns>CASES.LAST_UPDATE</columns>
+        <filterScope>Mine</filterScope>
+        <filters>
+            <field>Open_Actions__c</field>
+            <operation>greaterThan</operation>
+            <value>0</value>
+        </filters>
+        <label>My Cases with Open Actions</label>
+    </listViews>
+    <listViews>
+        <fullName>My_cases_with_Overdue_Actions</fullName>
+        <columns>CASES.CASE_NUMBER</columns>
+        <columns>ACCOUNT.NAME</columns>
+        <columns>CASES.SUBJECT</columns>
+        <columns>CASES.STATUS</columns>
+        <columns>Category__c</columns>
+        <columns>Sub_Category__c</columns>
+        <columns>Overdue_Action_Count__c</columns>
+        <columns>CASES.CREATED_DATE</columns>
+        <columns>CASES.LAST_UPDATE</columns>
+        <filterScope>Mine</filterScope>
+        <filters>
+            <field>Overdue_Action_Count__c</field>
+            <operation>greaterThan</operation>
+            <value>0</value>
+        </filters>
+        <label>My cases with Overdue Actions</label>
+    </listViews>
+    <listViews>
+        <fullName>Payment_Inquiries_Case</fullName>
+        <columns>ACCOUNT.NAME</columns>
+        <columns>CASES.STATUS</columns>
+        <columns>CASES.CREATED_DATE</columns>
+        <columns>Category__c</columns>
+        <columns>Sub_Category__c</columns>
+        <columns>CASES.ORIGIN</columns>
+        <filterScope>Queue</filterScope>
+        <filters>
+            <field>CASES.CLOSED</field>
+            <operation>equals</operation>
+            <value>0</value>
+        </filters>
+        <label>_Payment Inquiries</label>
+        <queue>Payment_Inquiries</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>Technical_Issues_Case</fullName>
+        <columns>ACCOUNT.NAME</columns>
+        <columns>CASES.STATUS</columns>
+        <columns>CASES.CREATED_DATE</columns>
+        <columns>Category__c</columns>
+        <columns>Sub_Category__c</columns>
+        <columns>CASES.ORIGIN</columns>
+        <filterScope>Queue</filterScope>
+        <filters>
+            <field>CASES.CLOSED</field>
+            <operation>equals</operation>
+            <value>0</value>
+        </filters>
+        <label>_Technical Issues</label>
+        <queue>Technical_Issues</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <recordTypeTrackFeedHistory>false</recordTypeTrackFeedHistory>
+    <recordTypeTrackHistory>true</recordTypeTrackHistory>
+    <recordTypes>
+        <fullName>Closed_Case</fullName>
+        <active>true</active>
+        <businessProcess>Closed Case Support Process</businessProcess>
+        <label>Closed Case</label>
+        <picklistValues>
+            <picklist>Browser__c</picklist>
+            <values>
+                <fullName>Chrome</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Firefox</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Internet Explorer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Safari</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Case_Close_Reason__c</picklist>
+            <values>
+                <fullName>Duplicate</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Incorrectly raised</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Insufficient info</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Internal testing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No customer response</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Resolved by advisor</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Resolved by dev fix</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Category__c</picklist>
+            <values>
+                <fullName>Billing%2C vouchers and promotions</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Getting started</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Invalid Case</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Manage your account</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Technical issues</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Using the service</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Device__c</picklist>
+            <values>
+                <fullName>Android</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MAC</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>PC</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>iOS</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Error_Code__c</picklist>
+            <values>
+                <fullName>00000000</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>00000001</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>00000010</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>00000011</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>00000100</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>OS__c</picklist>
+            <values>
+                <fullName>Jelly Bean</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>KitKat</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Lollipop</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>OS X Lion</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>OS X Mavericks</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>OS X Mountain Lion</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>OS X Yosemite</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Windows 7</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Windows 8</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Windows 8%2E1</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Windows Vista</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Windows XP</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>iOS 7</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>iOS 8</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Origin</picklist>
+            <values>
+                <fullName>Email</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Live Chat</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Web form</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Priority</picklist>
+            <values>
+                <fullName>High</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Low</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Medium</fullName>
+                <default>true</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Query_Topic__c</picklist>
+            <values>
+                <fullName>Abandoned Chat</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Created in error</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Duplicate</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Junk email</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Test</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Reason</picklist>
+            <values>
+                <fullName>Complex functionality</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Existing problem</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Instructions not clear</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>New problem</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>User didn%27t attend training</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Reopen_Reason__c</picklist>
+            <values>
+                <fullName>Bounceback</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Closed in error</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>New issue</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Thank you email %2F Autoreply</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Unhappy with resolution</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Sub_Category__c</picklist>
+            <values>
+                <fullName>About BBC Store</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>About BBC iD</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Account is locked</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Android</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Billing issues</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Buffering and blocky playback issues</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Buying content</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Close Store account</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Contacting us</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Content has disappeared from My Programmes</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Continuous loading</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cookies</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Customer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Error messages</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Forgotten email address%2C password%2C or PIN</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Internal</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mac</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Manage your details</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Managing devices</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>My Programmes</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>My device is not supported</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>PC</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Purchase history</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Rating and reviewing content</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Refunds</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Reporting suspicious activity%2Fstolen devices</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Shop</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Signing up</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Streaming quality</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Supported browsers%2FOS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Viewing problems</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Watching</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>What happens if iplayer is down%3F</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>iOS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>iPlayer</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Type</picklist>
+            <values>
+                <fullName>Feature Request</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Problem</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Question</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Community_Case</fullName>
+        <active>true</active>
+        <businessProcess>Case Support Process</businessProcess>
+        <description>Record type for cases created from a community post</description>
+        <label>Community Case</label>
+        <picklistValues>
+            <picklist>Browser__c</picklist>
+            <values>
+                <fullName>Chrome</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Firefox</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Internet Explorer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Safari</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Case_Close_Reason__c</picklist>
+            <values>
+                <fullName>Duplicate</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Incorrectly raised</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Insufficient info</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Internal testing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No customer response</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Resolved by advisor</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Resolved by dev fix</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Category__c</picklist>
+            <values>
+                <fullName>Billing%2C vouchers and promotions</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Getting started</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Invalid Case</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Manage your account</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Technical issues</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Using the service</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Device__c</picklist>
+            <values>
+                <fullName>Android</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MAC</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>PC</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>iOS</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Error_Code__c</picklist>
+            <values>
+                <fullName>00000000</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>00000001</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>00000010</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>00000011</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>00000100</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>OS__c</picklist>
+            <values>
+                <fullName>Jelly Bean</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>KitKat</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Lollipop</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>OS X Lion</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>OS X Mavericks</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>OS X Mountain Lion</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>OS X Yosemite</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Windows 7</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Windows 8</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Windows 8%2E1</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Windows Vista</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Windows XP</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>iOS 7</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>iOS 8</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Origin</picklist>
+            <values>
+                <fullName>Community</fullName>
+                <default>true</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Priority</picklist>
+            <values>
+                <fullName>High</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Low</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Medium</fullName>
+                <default>true</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Query_Topic__c</picklist>
+            <values>
+                <fullName>Abandoned Chat</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Created in error</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Duplicate</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Junk email</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Test</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Reason</picklist>
+            <values>
+                <fullName>Complex functionality</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Existing problem</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Instructions not clear</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>New problem</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>User didn%27t attend training</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Reopen_Reason__c</picklist>
+            <values>
+                <fullName>Bounceback</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Closed in error</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>New issue</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Thank you email %2F Autoreply</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Unhappy with resolution</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Sub_Category__c</picklist>
+            <values>
+                <fullName>About BBC Store</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>About BBC iD</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Account is locked</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Android</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Billing issues</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Buffering and blocky playback issues</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Buying content</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Close Store account</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Contacting us</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Content has disappeared from My Programmes</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Continuous loading</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cookies</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Customer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Error messages</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Forgotten email address%2C password%2C or PIN</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Internal</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mac</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Manage your details</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Managing devices</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>My Programmes</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>My device is not supported</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>PC</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Purchase history</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Rating and reviewing content</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Refunds</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Reporting suspicious activity%2Fstolen devices</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Shop</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Signing up</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Streaming quality</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Supported browsers%2FOS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Viewing problems</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Watching</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>What happens if iplayer is down%3F</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>iOS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>iPlayer</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Type</picklist>
+            <values>
+                <fullName>Feature Request</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Problem</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Question</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Social_Case</fullName>
+        <active>true</active>
+        <businessProcess>Case Support Process</businessProcess>
+        <description>Record type for cases created from a social channel (e.g. Twitter)</description>
+        <label>Social Case</label>
+        <picklistValues>
+            <picklist>Browser__c</picklist>
+            <values>
+                <fullName>Chrome</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Firefox</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Internet Explorer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Safari</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Case_Close_Reason__c</picklist>
+            <values>
+                <fullName>Duplicate</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Incorrectly raised</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Insufficient info</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Internal testing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No customer response</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Resolved by advisor</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Resolved by dev fix</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Category__c</picklist>
+            <values>
+                <fullName>Billing%2C vouchers and promotions</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Getting started</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Invalid Case</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Manage your account</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Technical issues</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Using the service</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Device__c</picklist>
+            <values>
+                <fullName>Android</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MAC</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>PC</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>iOS</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Error_Code__c</picklist>
+            <values>
+                <fullName>00000000</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>00000001</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>00000010</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>00000011</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>00000100</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>OS__c</picklist>
+            <values>
+                <fullName>Jelly Bean</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>KitKat</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Lollipop</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>OS X Lion</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>OS X Mavericks</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>OS X Mountain Lion</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>OS X Yosemite</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Windows 7</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Windows 8</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Windows 8%2E1</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Windows Vista</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Windows XP</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>iOS 7</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>iOS 8</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Origin</picklist>
+            <values>
+                <fullName>Social</fullName>
+                <default>true</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Priority</picklist>
+            <values>
+                <fullName>High</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Low</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Medium</fullName>
+                <default>true</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Query_Topic__c</picklist>
+            <values>
+                <fullName>Abandoned Chat</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Created in error</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Duplicate</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Junk email</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Test</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Reason</picklist>
+            <values>
+                <fullName>Complex functionality</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Existing problem</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Instructions not clear</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>New problem</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>User didn%27t attend training</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Reopen_Reason__c</picklist>
+            <values>
+                <fullName>Bounceback</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Closed in error</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>New issue</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Thank you email %2F Autoreply</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Unhappy with resolution</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Sub_Category__c</picklist>
+            <values>
+                <fullName>About BBC Store</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>About BBC iD</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Account is locked</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Android</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Billing issues</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Buffering and blocky playback issues</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Buying content</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Close Store account</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Contacting us</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Content has disappeared from My Programmes</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Continuous loading</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cookies</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Customer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Error messages</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Forgotten email address%2C password%2C or PIN</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Internal</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mac</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Manage your details</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Managing devices</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>My Programmes</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>My device is not supported</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>PC</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Purchase history</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Rating and reviewing content</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Refunds</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Reporting suspicious activity%2Fstolen devices</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Shop</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Signing up</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Streaming quality</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Supported browsers%2FOS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Viewing problems</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Watching</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>What happens if iplayer is down%3F</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>iOS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>iPlayer</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Type</picklist>
+            <values>
+                <fullName>Feature Request</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Problem</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Question</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Standard_Case</fullName>
+        <active>true</active>
+        <businessProcess>Case Support Process</businessProcess>
+        <description>Record type for cases created from a web form or live chat</description>
+        <label>Standard Case</label>
+        <picklistValues>
+            <picklist>Browser__c</picklist>
+            <values>
+                <fullName>Chrome</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Firefox</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Internet Explorer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Safari</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Case_Close_Reason__c</picklist>
+            <values>
+                <fullName>Duplicate</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Incorrectly raised</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Insufficient info</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Internal testing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No customer response</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Resolved by advisor</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Resolved by dev fix</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Category__c</picklist>
+            <values>
+                <fullName>Billing%2C vouchers and promotions</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Getting started</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Invalid Case</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Manage your account</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Technical issues</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Using the service</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Device__c</picklist>
+            <values>
+                <fullName>Android</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MAC</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>PC</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>iOS</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Error_Code__c</picklist>
+            <values>
+                <fullName>00000000</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>00000001</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>00000010</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>00000011</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>00000100</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>OS__c</picklist>
+            <values>
+                <fullName>Jelly Bean</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>KitKat</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Lollipop</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>OS X Lion</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>OS X Mavericks</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>OS X Mountain Lion</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>OS X Yosemite</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Windows 7</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Windows 8</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Windows 8%2E1</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Windows Vista</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Windows XP</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>iOS 7</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>iOS 8</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Origin</picklist>
+            <values>
+                <fullName>Email</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Live Chat</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Web form</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Priority</picklist>
+            <values>
+                <fullName>High</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Low</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Medium</fullName>
+                <default>true</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Query_Topic__c</picklist>
+            <values>
+                <fullName>Abandoned Chat</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Created in error</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Duplicate</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Junk email</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Test</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Reason</picklist>
+            <values>
+                <fullName>Complex functionality</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Existing problem</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Instructions not clear</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>New problem</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>User didn%27t attend training</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Reopen_Reason__c</picklist>
+            <values>
+                <fullName>Bounceback</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Closed in error</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>New issue</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Thank you email %2F Autoreply</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Unhappy with resolution</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Sub_Category__c</picklist>
+            <values>
+                <fullName>About BBC Store</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>About BBC iD</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Account is locked</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Android</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Billing issues</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Buffering and blocky playback issues</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Buying content</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Close Store account</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Contacting us</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Content has disappeared from My Programmes</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Continuous loading</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cookies</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Customer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Error messages</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Forgotten email address%2C password%2C or PIN</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Internal</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mac</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Manage your details</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Managing devices</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>My Programmes</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>My device is not supported</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>PC</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Purchase history</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Rating and reviewing content</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Refunds</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Reporting suspicious activity%2Fstolen devices</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Shop</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Signing up</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Streaming quality</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Supported browsers%2FOS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Viewing problems</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Watching</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>What happens if iplayer is down%3F</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>iOS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>iPlayer</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Type</picklist>
+            <values>
+                <fullName>Feature Request</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Problem</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Question</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <searchLayouts>
+        <customTabListAdditionalFields>CASES.CASE_NUMBER</customTabListAdditionalFields>
+        <customTabListAdditionalFields>CASES.SUBJECT</customTabListAdditionalFields>
+        <customTabListAdditionalFields>CASES.CREATED_DATE</customTabListAdditionalFields>
+        <customTabListAdditionalFields>CASES.PRIORITY</customTabListAdditionalFields>
+        <excludedStandardButtons>ChangeStatus</excludedStandardButtons>
+        <excludedStandardButtons>ChangeOwner</excludedStandardButtons>
+        <lookupDialogsAdditionalFields>CASES.CASE_NUMBER</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>CASES.SUBJECT</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>ACCOUNT.NAME</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>CASES.STATUS</lookupDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>CASES.CASE_NUMBER</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>CASES.SUBJECT</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>ACCOUNT.NAME</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>CASES.STATUS</lookupPhoneDialogsAdditionalFields>
+        <searchResultsAdditionalFields>CASES.CASE_NUMBER</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>CASES.SUBJECT</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>CASES.STATUS</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>CASES.CREATED_DATE</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>CORE.USERS.ALIAS</searchResultsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>Private</sharingModel>
+    <validationRules>
+        <fullName>Can_not_reassign_case</fullName>
+        <active>true</active>
+        <description>triggers if a CSR tries to re-assign a case he did not work on</description>
+        <errorConditionFormula>AND (
+     ISPICKVAL( Status , &quot;In Progress&quot;), 
+     ISCHANGED( OwnerId ),
+     $User.ProfileId = &quot;00eg0000000DqLG&quot;
+     )</errorConditionFormula>
+        <errorMessage>You can not change the owner of a case you have not worked on</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Case_Subject_Description_read_only</fullName>
+        <active>true</active>
+        <description>Case Subject/Description are read only if the origin of the case is webform</description>
+        <errorConditionFormula>AND( 
+   OR( ISPICKVAL(Origin, &quot;Web form&quot;), 
+       ISPICKVAL (Origin, &quot;Email&quot;)),
+   OR ( ISCHANGED( Subject ),
+        ISCHANGED( Description )  
+       )
+    )</errorConditionFormula>
+        <errorMessage>You are not allowed to modify the case subject and/or description</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Close_Reason_Mandatory</fullName>
+        <active>true</active>
+        <description>this validation rule triggers if a case is closed without a case reason selected</description>
+        <errorConditionFormula>AND
+    (
+      ISPICKVAL( Status , &quot;Closed&quot; ),
+      ISPICKVAL(  Case_Close_Reason__c , &quot;&quot; ) 
+     )</errorConditionFormula>
+        <errorDisplayField>Case_Close_Reason__c</errorDisplayField>
+        <errorMessage>Please select a close reason</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>OS_Mandatory_for_Devices</fullName>
+        <active>true</active>
+        <description>OS mandatory if Device chosen</description>
+        <errorConditionFormula>AND (
+NOT(ISPICKVAL ( Device__c , &quot;&quot;)),
+ISPICKVAL ( OS__c, &quot;&quot;)
+)</errorConditionFormula>
+        <errorDisplayField>OS__c</errorDisplayField>
+        <errorMessage>You must enter OS information if Device is specified</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Open_actions</fullName>
+        <active>true</active>
+        <description>triggers if a user tries to close a case with open actions</description>
+        <errorConditionFormula>AND (
+      ISPICKVAL(  Status , &quot;Closed&quot;),
+      Open_Actions__c &gt; 0
+     )</errorConditionFormula>
+        <errorMessage>You cannot close a case with open action(s), please complete the pending action(s) before closing the case</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Other_device_description</fullName>
+        <active>true</active>
+        <description>if device=other, other device info field is mandatory</description>
+        <errorConditionFormula>AND (
+      ISPICKVAL( Device__c , &quot;Other&quot;),
+      ISBLANK( Other_device_description__c )  
+     )</errorConditionFormula>
+        <errorDisplayField>Other_device_description__c</errorDisplayField>
+        <errorMessage>You have selected other device, please enter a device descritpion</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Other_error_code</fullName>
+        <active>true</active>
+        <description>if error code=other, other error code is mandatory</description>
+        <errorConditionFormula>AND (
+      ISPICKVAL(  Error_Code__c , &quot;Other&quot;),
+      ISBLANK(  Other_Error_Code__c  )  
+     )</errorConditionFormula>
+        <errorDisplayField>Other_Error_Code__c</errorDisplayField>
+        <errorMessage>You have selected other error code, please enter an error code</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Reopen_close_case_outside_timeframe</fullName>
+        <active>true</active>
+        <description>triggers if a user tries to reopen a case outside of the reopening period</description>
+        <errorConditionFormula>AND ( PRIORVALUE( Status )= &quot;Closed&quot;,
+        Re_open_limit__c  &lt; NOW()
+     )</errorConditionFormula>
+        <errorMessage>This case is outside of the 14 days reopening period, please create a new case</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Reopen_reason</fullName>
+        <active>true</active>
+        <description>if status = re-open, re-open reason is mandatory before changing the status</description>
+        <errorConditionFormula>AND (
+     ISPICKVAL(PRIORVALUE( Status ), &quot;Reopened&quot;), 
+     ISPICKVAL( Reopen_Reason__c , &quot;&quot;) 
+     )</errorConditionFormula>
+        <errorDisplayField>Reopen_Reason__c</errorDisplayField>
+        <errorMessage>This case was re-opened please select a re-open reason</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Technical_Issues_Details</fullName>
+        <active>true</active>
+        <description>Tech Issue cases require technical details input</description>
+        <errorConditionFormula>AND(  
+      OR(ISPICKVAL(Status, &quot;Closed&quot;), 
+         ISPICKVAL (Status, &quot;Pending - escalated&quot;)
+         ),
+     ISPICKVAL ( Category__c , &quot;Technical Issues&quot;),
+     ISPICKVAL ( Device__c , &quot;&quot;)
+)</errorConditionFormula>
+        <errorMessage>Please complete all further technical information (device, OS)</errorMessage>
+    </validationRules>
+    <webLinks>
+        <fullName>Digital_Locker</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Digital Locker</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <url>{!REQUIRESCRIPT(&quot;/support/console/30.0/integration.js&quot;)} 
+if({!$Permission.ViewLocker}){
+if (sforce.console.isInConsole()){
+srcUp(&apos;/apex/GEN_DigitalLocker?isdtp=vw&amp;caseId={!Case.Id}&apos;);
+}
+else{
+window.location = &apos;/apex/GEN_DigitalLocker?caseId={!Case.Id}&apos;;
+}
+}
+else{
+alert(&apos;You do not have authorized permission to perform this action&apos;);
+}</url>
+    </webLinks>
+</CustomObject>

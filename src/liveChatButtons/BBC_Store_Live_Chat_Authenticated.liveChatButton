@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LiveChatButton xmlns="http://soap.sforce.com/2006/04/metadata">
+    <autoGreeting>Hi known customer, welcome to BBC Store Live Chat</autoGreeting>
+    <deployments/>
+    <enableQueue>true</enableQueue>
+    <isActive>true</isActive>
+    <label>BBC Store Live Chat Auth</label>
+    <optionsCustomRoutingIsEnabled>false</optionsCustomRoutingIsEnabled>
+    <optionsHasInviteAfterAccept>false</optionsHasInviteAfterAccept>
+    <optionsHasInviteAfterReject>false</optionsHasInviteAfterReject>
+    <optionsHasRerouteDeclinedRequest>false</optionsHasRerouteDeclinedRequest>
+    <optionsIsAutoAccept>false</optionsIsAutoAccept>
+    <optionsIsInviteAutoRemove>false</optionsIsInviteAutoRemove>
+    <overallQueueLength>5</overallQueueLength>
+    <pushTimeOut>10</pushTimeOut>
+    <routingType>MostAvailable</routingType>
+    <skills>
+        <skill>BBC_Store_UK</skill>
+    </skills>
+    <type>Standard</type>
+    <windowLanguage>en_US</windowLanguage>
+</LiveChatButton>

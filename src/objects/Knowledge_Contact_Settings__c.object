@@ -1,0 +1,405 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Follow</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>Settings to define which contact channels are available per knowledge sub-category</description>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>Active__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Active</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Authentication_Required__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Authentication Required</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Callback__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Allows user to request a callback from Contact Centre</description>
+        <externalId>false</externalId>
+        <label>Callback</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Community__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Community</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Knowledge_Sub_Topic__c</fullName>
+        <description>The second level of article categorisation in the Knowledge Base</description>
+        <externalId>false</externalId>
+        <label>Knowledge Sub-Topic</label>
+        <picklist>
+            <controllingField>Knowledge_Topic__c</controllingField>
+            <picklistValues>
+                <fullName>About BBC Store</fullName>
+                <controllingFieldValues>Getting Started</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Signing Up</fullName>
+                <controllingFieldValues>Getting Started</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>BBC iPlayer</fullName>
+                <controllingFieldValues>Getting Started</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>BBC Shop</fullName>
+                <controllingFieldValues>Getting Started</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>My Programmes</fullName>
+                <controllingFieldValues>Manage Your Account</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Manage Your Details</fullName>
+                <controllingFieldValues>Manage Your Account</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Refunds</fullName>
+                <controllingFieldValues>Manage Your Account</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Forgotten Email Address, Password or PIN</fullName>
+                <controllingFieldValues>Manage Your Account</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>About BBC iD</fullName>
+                <controllingFieldValues>Manage Your Account</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Managing Devices</fullName>
+                <controllingFieldValues>Manage Your Account</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Close Your Store Account</fullName>
+                <controllingFieldValues>Manage Your Account</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Locked Account</fullName>
+                <controllingFieldValues>Manage Your Account</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Reporting Suspicious Activity</fullName>
+                <controllingFieldValues>Manage Your Account</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Reporting Stolen Devices</fullName>
+                <controllingFieldValues>Manage Your Account</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Purchase History</fullName>
+                <controllingFieldValues>Manage Your Account</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Billing Issues</fullName>
+                <controllingFieldValues>Manage Your Account</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Content Missing in My Programmes</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Buying Content</fullName>
+                <controllingFieldValues>Using the Service</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Watching Content</fullName>
+                <controllingFieldValues>Using the Service</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Rating and Reviewing Content</fullName>
+                <controllingFieldValues>Using the Service</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Contacting Us</fullName>
+                <controllingFieldValues>Using the Service</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Cookies</fullName>
+                <controllingFieldValues>Using the Service</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>PC</fullName>
+                <controllingFieldValues>Technical Issues</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Mac</fullName>
+                <controllingFieldValues>Technical Issues</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>iOS</fullName>
+                <controllingFieldValues>Technical Issues</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Android</fullName>
+                <controllingFieldValues>Technical Issues</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Streaming Quality</fullName>
+                <controllingFieldValues>Technical Issues</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Support Browsers/Operating Systems</fullName>
+                <controllingFieldValues>Technical Issues</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>My Device Isn&apos;t Supported</fullName>
+                <controllingFieldValues>Technical Issues</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>iPlayer</fullName>
+                <controllingFieldValues>Technical Issues</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>What happens if iPlayer is down?</fullName>
+                <controllingFieldValues>Technical Issues</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Shop</fullName>
+                <controllingFieldValues>Technical Issues</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Continuous Loading</fullName>
+                <controllingFieldValues>Technical Issues</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Error Messages</fullName>
+                <controllingFieldValues>Technical Issues</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Viewing Problems</fullName>
+                <controllingFieldValues>Technical Issues</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Buffering and Playback Issues</fullName>
+                <controllingFieldValues>Technical Issues</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Knowledge_Topic__c</fullName>
+        <description>The first tier under which articles are grouped in the Knowledge Base</description>
+        <externalId>false</externalId>
+        <label>Knowledge Topic</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Getting Started</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Manage Your Account</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Using the Service</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Technical Issues</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Billing, Vouchers and Promotions</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>LiveChat__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>LiveChat</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Region__c</fullName>
+        <description>The geographical areas that knowledge articles are tagged by</description>
+        <externalId>false</externalId>
+        <label>Region</label>
+        <picklist>
+            <picklistValues>
+                <fullName>UK</fullName>
+                <default>true</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Australia</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>New Zealand</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Webform__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Webform</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <label>Knowledge Contact Settings</label>
+    <listViews>
+        <fullName>All</fullName>
+        <columns>NAME</columns>
+        <columns>Knowledge_Topic__c</columns>
+        <columns>Knowledge_Sub_Topic__c</columns>
+        <columns>Active__c</columns>
+        <columns>Region__c</columns>
+        <columns>Webform__c</columns>
+        <columns>Callback__c</columns>
+        <columns>LiveChat__c</columns>
+        <columns>Community__c</columns>
+        <columns>Authentication_Required__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <nameField>
+        <displayFormat>KCS-{00000}</displayFormat>
+        <label>Knowledge Contact Settings Name</label>
+        <trackHistory>false</trackHistory>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Knowledge Contact Settings</pluralLabel>
+    <searchLayouts>
+        <customTabListAdditionalFields>Active__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Knowledge_Topic__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Knowledge_Sub_Topic__c</customTabListAdditionalFields>
+        <searchResultsAdditionalFields>Knowledge_Topic__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Knowledge_Sub_Topic__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Active__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Authentication_Required__c</searchResultsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>Private</sharingModel>
+    <validationRules>
+        <fullName>Active_Contact_Channel_Selected</fullName>
+        <active>true</active>
+        <description>If active is checked, at least one of the three contact channels also needs to be checked</description>
+        <errorConditionFormula>AND( Active__c = TRUE, 
+     AND( Community__c = FALSE,
+           LiveChat__c = FALSE,
+           Webform__c = FALSE
+         )
+    )</errorConditionFormula>
+        <errorMessage>You have marked Knowledge Contact Settings as active. Please select a contact channel.</errorMessage>
+    </validationRules>
+</CustomObject>

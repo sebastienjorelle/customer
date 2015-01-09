@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DataCategoryGroup xmlns="http://soap.sforce.com/2006/04/metadata">
+    <active>true</active>
+    <dataCategory>
+        <dataCategory>
+            <dataCategory>
+                <label>About BBC Store</label>
+                <name>About_BBC_Store</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Signing Up</label>
+                <name>Signing_Up</name>
+            </dataCategory>
+            <dataCategory>
+                <label>BBC iPlayer</label>
+                <name>BBC_iPlayer</name>
+            </dataCategory>
+            <dataCategory>
+                <label>BBC Shop</label>
+                <name>BBC_Shop</name>
+            </dataCategory>
+            <label>Getting Started</label>
+            <name>Getting_Started</name>
+        </dataCategory>
+        <dataCategory>
+            <dataCategory>
+                <label>My Programmes</label>
+                <name>My_Programmes</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Manage Your Details</label>
+                <name>Manage_Your_Details</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Refunds</label>
+                <name>Refunds</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Forgotten Email Address, Password or PIN</label>
+                <name>Forgotten_Email_Address_Password_or_PIN</name>
+            </dataCategory>
+            <dataCategory>
+                <label>About BBC iD</label>
+                <name>Abbout_BBC_iD</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Managing Devices</label>
+                <name>Managing_Devices</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Close Your Store Account</label>
+                <name>Close_Store_Account</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Locked Account</label>
+                <name>Account_Locked</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Reporting Suspicious Activity</label>
+                <name>Reporting_Suspicious_Activity</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Reporting Stolen Devices</label>
+                <name>Reporting_Stolen_Devices</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Purchase History</label>
+                <name>Purchase_History</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Billing Issues</label>
+                <name>Billing_Issues</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Content Missing in My Programmes</label>
+                <name>Content_Missing_In_My_Programmes</name>
+            </dataCategory>
+            <label>Manage Your Account</label>
+            <name>Manage_Your_Account</name>
+        </dataCategory>
+        <dataCategory>
+            <dataCategory>
+                <label>Buying Content</label>
+                <name>Buying_Content</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Watching Content</label>
+                <name>Watching_Content</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Rating and Reviewing Content</label>
+                <name>Rating_and_Reviewing_Content</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Contacting Us</label>
+                <name>Contacting_Us</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Cookies</label>
+                <name>Cookies</name>
+            </dataCategory>
+            <label>Using the Service</label>
+            <name>Using_the_Service</name>
+        </dataCategory>
+        <dataCategory>
+            <dataCategory>
+                <label>PC</label>
+                <name>PC</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Mac</label>
+                <name>Mac</name>
+            </dataCategory>
+            <dataCategory>
+                <label>iOS</label>
+                <name>iOS</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Android</label>
+                <name>Android</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Streaming Quality</label>
+                <name>Streaming_Quality</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Supported Browsers/Operating Systems</label>
+                <name>Supported_Browsers_Operating_Systems</name>
+            </dataCategory>
+            <dataCategory>
+                <label>My Device Isn&apos;t Supported</label>
+                <name>My_Device_Isn_t_Supported</name>
+            </dataCategory>
+            <dataCategory>
+                <label>iPlayer</label>
+                <name>iPlayer</name>
+            </dataCategory>
+            <dataCategory>
+                <label>What happens if iPlayer is down?</label>
+                <name>What_happens_if_iPlayer_is_down</name>
+            </dataCategory>
+            <dataCategory>
+                <label>BBC Shop</label>
+                <name>Shop</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Continuous Loading</label>
+                <name>Continuous_Loading</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Error Messages</label>
+                <name>Error_Messages</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Viewing Problems</label>
+                <name>Viewing_Problems</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Buffering and Playback Issues</label>
+                <name>Buffering_and_Playback_Issues</name>
+            </dataCategory>
+            <label>Technical Issues</label>
+            <name>Technical_Issues</name>
+        </dataCategory>
+        <dataCategory>
+            <label>Billing, Vouchers and Promotions</label>
+            <name>Billing_vouchers_and_promotions</name>
+        </dataCategory>
+        <label>All</label>
+        <name>All</name>
+    </dataCategory>
+    <description>Categories that knowledge articles will be grouped by</description>
+    <label>Topic</label>
+    <objectUsage>
+        <object>KnowledgeArticleVersion</object>
+    </objectUsage>
+</DataCategoryGroup>

@@ -1,0 +1,99 @@
+<apex:page controller="GEN_PaymentInformation_Ctrl" tabStyle="Case" id="pg">
+
+    
+   <!--<apex:includeScript value="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js" />
+    <apex:includeScript value="//cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.17.8/js/jquery.tablesorter.min.js" />
+    <apex:includeScript value="/support/console/22.0/integration.js"/>
+	<apex:stylesheet value="{!URLFOR($Resource.StyleTableSorter)}"/> -->
+    <style>
+    .caseTab .pageTitleIcon, .individualPalette .caseBlock
+    .pageTitleIcon {
+        background-image: url('/img/sprites/master.png');
+        background-position: 0px -986px;
+        width: 32px;
+        height: 32px;
+    }
+    </style>
+		
+		<apex:outputPanel id="back">
+        <img src="/s.gif" class="pageTitleIcon"></img>
+        <apex:outputText value="Case" style="font-weight:bolder;font-size:13px;"></apex:outputText><br></br>
+        <apex:outputText value="{!caseRecord.CaseNumber}" style="font-weight:bolder;font-size:15px;"></apex:outputText><br></br>
+        &nbsp;&nbsp;&nbsp;&nbsp;<apex:outputLink value="/{!caseRecord.Id}" style="color:#015BA7">{!$Label.Back}</apex:outputLink><br></br>
+        </apex:outputPanel>
+        <br></br>
+        
+	 <apex:form id="frm">    
+                   
+		  <apex:pageBlock title="Transaction History:" id="thePageBlock">
+	           <apex:selectlist id="sl" size="1">
+	               <apex:selectoptions id="so1" value="{!range}"/>
+	           </apex:selectlist>
+	           
+	           <apex:selectlist id="sltype" size="1">
+	               <apex:selectoptions id="so2" value="{!pType}"/>
+	           </apex:selectlist>
+		                   
+	           <apex:pageBlockTable value="{!products}" var="product" id="thePageBlockTable">
+	             
+						<apex:column value="{!product.prod.Name}">
+						    <apex:facet name="header">   
+						         <apex:commandLink action="{!sortList}" value="Product" rerender="thePageBlock"> 
+						        
+						           <apex:param value="Name" name="column" assignTo="{!sortField}" ></apex:param>
+						        </apex:commandLink>
+						    </apex:facet>
+						</apex:column>
+						
+		               
+		               
+		               <apex:column headerValue="Payment Type">
+		                   <apex:outputText value="Visa/Mastercard"/>
+		               </apex:column>
+		                               
+		               <apex:column value="{!product.prod.Action_Date__c}">
+						    <apex:facet name="header">   
+						        <apex:commandLink action="{!sortList}" value="Action Due Date" rerender="thePageBlock">
+						            <apex:param value="Action_Date__c" name="column" assignTo="{!sortField}" ></apex:param>
+						        </apex:commandLink>
+						    </apex:facet>
+						</apex:column>
+		               
+		               <apex:column value="{!product.prod.Reason__c}">
+						    <apex:facet name="header">   
+						        <apex:commandLink action="{!sortList}" value="Type" rerender="thePageBlock">
+						            <apex:param value="Reason__c" name="column" assignTo="{!sortField}" ></apex:param>
+						        </apex:commandLink>
+						    </apex:facet>
+						</apex:column>
+						
+						<apex:column value="{!product.prod.Status__c}">
+						    <apex:facet name="header">   
+						        <apex:commandLink action="{!sortList}" value="Status" rerender="thePageBlock">
+						            <apex:param value="Status__c" name="column" assignTo="{!sortField}" ></apex:param>
+						        </apex:commandLink>
+						    </apex:facet>
+						</apex:column>
+	               
+	           </apex:pageBlockTable>
+		           
+	            <br></br>
+	            <center><apex:commandLink action="{!first}" id="first">First</apex:commandlink>&nbsp;&nbsp;
+	            <apex:commandLink action="{!previous}" rendered="{!hasPrevious}">Prev</apex:commandlink>&nbsp;&nbsp;
+	            <apex:outputText value="{!pageNumber}"/>&nbsp;&nbsp;
+	            <apex:commandLink action="{!next}" rendered="{!hasNext}">Next</apex:commandlink>&nbsp;&nbsp;
+	            <apex:commandLink action="{!last}">Last</apex:commandlink></center>
+	            <apex:outputText value="Page {!pageNumber} of {!countPage}"/>
+		  </apex:pageBlock>
+	 </apex:form>  
+	 <script>
+			window.onload = new function(){
+				if(document.getElementById('pg:back')){
+					if (sforce.console.isInConsole()){ 
+						document.getElementById('pg:back').style.display= "none";
+					
+					}
+				}
+			}		
+	</script>
+</apex:page>

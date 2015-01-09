@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DataCategoryGroup xmlns="http://soap.sforce.com/2006/04/metadata">
+    <active>true</active>
+    <dataCategory>
+        <dataCategory>
+            <label>iOS</label>
+            <name>iOS</name>
+        </dataCategory>
+        <dataCategory>
+            <label>Android</label>
+            <name>Android</name>
+        </dataCategory>
+        <dataCategory>
+            <label>Download Manager</label>
+            <name>Download_Manager</name>
+        </dataCategory>
+        <label>All</label>
+        <name>All</name>
+    </dataCategory>
+    <description>Specific device platform that the article relates to</description>
+    <label>Platform</label>
+    <objectUsage>
+        <object>KnowledgeArticleVersion</object>
+    </objectUsage>
+</DataCategoryGroup>

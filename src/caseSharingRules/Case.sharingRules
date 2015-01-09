@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CaseSharingRules xmlns="http://soap.sforce.com/2006/04/metadata">
+    <ownerRules>
+        <fullName>Case_Access</fullName>
+        <sharedTo>
+            <roleAndSubordinates>Integration_User</roleAndSubordinates>
+        </sharedTo>
+        <sharedFrom>
+            <roleAndSubordinates>Integration_User</roleAndSubordinates>
+        </sharedFrom>
+        <caseAccessLevel>Edit</caseAccessLevel>
+        <description>Case sharing rule for BBC &amp; Contact Centre users</description>
+        <name>Case Access</name>
+    </ownerRules>
+</CaseSharingRules>

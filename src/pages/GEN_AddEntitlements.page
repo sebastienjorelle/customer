@@ -1,0 +1,44 @@
+<!------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+           Name:          GEN_DigitalLocker.page
+
+           Description:  Visualforce Page that opens on click on Add Entitlement button on Digital Locker screen
+
+ 
+
+   Date             Version         Author                             Summary of Changes
+
+   -----------      ----------   -----------------                 ---------------------------------------------------------------------------------------------------
+
+   Dec 2014         1.0           Shalabh Sharma                       Initial Release
+
+    ------------------------------------------------------------------------------------------------------------------------------------------------------------->  
+
+    <apex:page controller="GEN_DigitalLockerController" id="thePage">
+        <apex:form >
+            <apex:pageBlock title="Add Entitlement" id="thePageBlock">
+                <apex:outputText value="Product Name: "/>
+                <apex:inputText value="{!inputProduct}"/>
+                &nbsp;&nbsp;&nbsp;<apex:commandButton value="Search" action="{!searchProducts}" rerender="prodTable"></apex:commandButton>
+            </apex:pageBlock>
+
+            <apex:pageBlock >
+                <apex:pageBlockButtons location="bottom">
+                    <apex:commandButton value="Add to list"/>
+                </apex:pageBlockButtons>
+                <apex:pageBlockTable value="{!addProducts}" var="addEnt" id="prodTable">
+                    <apex:column >
+                    <apex:inputCheckbox id="checkBox" value="{!addEnt.selected}"></apex:inputCheckbox>
+                    </apex:column>
+                    <apex:column headerValue="Product">
+                    <apex:outputText value="{!addEnt.addProducts.Name}"/>
+                    </apex:column>
+                    <apex:column headerValue="Date Shown">
+                    <apex:outputText value="{0,date,MMMM d','yyyy}">
+                    <apex:param value="{!addEnt.addProducts.Action_Date__c}"/>
+                    </apex:outputText>
+                    </apex:column>  
+                </apex:pageBlockTable>
+            </apex:pageBlock>
+        </apex:form>
+    </apex:page>

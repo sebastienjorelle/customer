@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Action</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Actions</value>
+    </caseValues>
+    <fields>
+        <label><!-- Account --></label>
+        <name>Account__c</name>
+        <relationshipLabel><!-- Actions --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Action Closed Date --></label>
+        <name>Action_Closed_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Action Due Date --></label>
+        <name>Action_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Action Name --></label>
+        <name>Action_Name__c</name>
+        <picklistValues>
+            <masterLabel>Add Store credit</masterLabel>
+            <translation><!-- Add Store credit --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Add credit card</masterLabel>
+            <translation><!-- Add credit card --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Add entitlements</masterLabel>
+            <translation><!-- Add entitlements --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Cancel pre-order</masterLabel>
+            <translation><!-- Cancel pre-order --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Change email-address</masterLabel>
+            <translation><!-- Change email-address --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Full refund</masterLabel>
+            <translation><!-- Full refund --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Get escalation update</masterLabel>
+            <translation><!-- Get escalation update --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Partial refund</masterLabel>
+            <translation><!-- Partial refund --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Refund Store credit</masterLabel>
+            <translation><!-- Refund Store credit --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Remove Store credit</masterLabel>
+            <translation><!-- Remove Store credit --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Remove credit card</masterLabel>
+            <translation><!-- Remove credit card --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Remove entitlements</masterLabel>
+            <translation><!-- Remove entitlements --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Reset password</masterLabel>
+            <translation><!-- Reset password --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Set marketing preference</masterLabel>
+            <translation><!-- Set marketing preference --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Case --></label>
+        <name>Case__c</name>
+        <relationshipLabel><!-- Actions --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Days Overdue --></label>
+        <name>Days_Overdue__c</name>
+    </fields>
+    <fields>
+        <label><!-- Description --></label>
+        <name>Description__c</name>
+    </fields>
+    <fields>
+        <label><!-- Overdue --></label>
+        <name>Overdue_Image__c</name>
+    </fields>
+    <fields>
+        <label><!-- Overdue --></label>
+        <name>Overdue__c</name>
+    </fields>
+    <fields>
+        <label><!-- Reason --></label>
+        <name>Reason__c</name>
+        <picklistValues>
+            <masterLabel>(opt-in) Wants marketing but is not receiving it</masterLabel>
+            <translation><!-- (opt-in) Wants marketing but is not receiving it --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>(opt-in) Wants to receive marketing</masterLabel>
+            <translation><!-- (opt-in) Wants to receive marketing --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>(opt-out) Didn&apos;t sign up for marketing</masterLabel>
+            <translation><!-- (opt-out) Didn&apos;t sign up for marketing --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>(opt-out) Felt the marketing wasn&apos;t appropriate</masterLabel>
+            <translation><!-- (opt-out) Felt the marketing wasn&apos;t appropriate --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>(opt-out) Receives too much marketing</masterLabel>
+            <translation><!-- (opt-out) Receives too much marketing --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Changed their mind</masterLabel>
+            <translation><!-- Changed their mind --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Content has been refunded but is still visible in My Programmes</masterLabel>
+            <translation><!-- Content has been refunded but is still visible in My Programmes --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Content not visible in My Programmes</masterLabel>
+            <translation><!-- Content not visible in My Programmes --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Credit was issued but refund is required</masterLabel>
+            <translation><!-- Credit was issued but refund is required --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Credit was issued in error</masterLabel>
+            <translation><!-- Credit was issued in error --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Didn&apos;t know how to do it online</masterLabel>
+            <translation><!-- Didn&apos;t know how to do it online --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Dissatisfied with product</masterLabel>
+            <translation><!-- Dissatisfied with product --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Encountered issues redeeming credit</masterLabel>
+            <translation><!-- Encountered issues redeeming credit --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Encountered technical issues</masterLabel>
+            <translation><!-- Encountered technical issues --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Follow-up with case team</masterLabel>
+            <translation><!-- Follow-up with case team --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Found the product cheaper elsewhere</masterLabel>
+            <translation><!-- Found the product cheaper elsewhere --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Good-will gesture</masterLabel>
+            <translation><!-- Good-will gesture --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Not had feedback within a period of time</masterLabel>
+            <translation><!-- Not had feedback within a period of time --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Problem persists/is worsening</masterLabel>
+            <translation><!-- Problem persists/is worsening --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Product refund</masterLabel>
+            <translation><!-- Product refund --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Restoring entitlements from a closed Store account</masterLabel>
+            <translation><!-- Restoring entitlements from a closed Store account --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TBC by BBC</masterLabel>
+            <translation><!-- TBC by BBC --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Technical error online</masterLabel>
+            <translation><!-- Technical error online --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Thought it would be faster to change via contact centre than online</masterLabel>
+            <translation><!-- Thought it would be faster to change via contact centre than online --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Unclear on next steps</masterLabel>
+            <translation><!-- Unclear on next steps --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>User has an entitlement that they shouldn’t be entitled to</masterLabel>
+            <translation><!-- User has an entitlement that they shouldn’t be entitled to --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Amount --></label>
+        <name>Refund_amount__c</name>
+    </fields>
+    <fields>
+        <label><!-- Status --></label>
+        <name>Status__c</name>
+        <picklistValues>
+            <masterLabel>Completed</masterLabel>
+            <translation><!-- Completed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pending</masterLabel>
+            <translation><!-- Pending --></translation>
+        </picklistValues>
+    </fields>
+    <layouts>
+        <layout>Action Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Description --></label>
+            <section>Description</section>
+        </sections>
+        <sections>
+            <label><!-- Refund/Cancellation --></label>
+            <section>Refund/Cancellation</section>
+        </sections>
+    </layouts>
+    <recordTypes>
+        <label><!-- Action Record Type --></label>
+        <name>Action_Record_Type</name>
+    </recordTypes>
+    <startsWith>Vowel</startsWith>
+    <validationRules>
+        <errorMessage><!-- Please enter a description of the action --></errorMessage>
+        <name>Description_must_not_be_blank</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Please enter a reason --></errorMessage>
+        <name>Reason_cannot_be_blank</name>
+    </validationRules>
+</CustomObjectTranslation>

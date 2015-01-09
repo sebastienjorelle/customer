@@ -1,0 +1,6 @@
+Hi {!Contact.FirstName},
+
+Case {!Case.CaseNumber} has been reopened.
+
+Regards
+{!Case.OwnerFullName}
