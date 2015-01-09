@@ -1,6 +1,6 @@
 public class GEN_Case_Trigger_Util_Cls{
 
-
+//rhodri
     public static void caseLimitMail(){
         
         list<Messaging.SingleEmailMessage> emailLst = new list<Messaging.SingleEmailMessage>();
