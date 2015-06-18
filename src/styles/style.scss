@@ -1,0 +1,391 @@
+
+
+
+@import 'resets.scss';
+@import 'basestyles.scss'; 
+
+.selfServiceCaseCreate .caseHeader .bBody span.headerLabel, 
+
+body .selfServiceTopicTrendingArticles h2.trendingHeader,
+.homepage .selfServiceTopicTrendingArticles h2.trendingHeader{   
+	@extend h2;
+}
+
+body .selfServiceArticleListItem .article-head{
+	@extend h4;
+	margin:0;
+}
+
+.selfServiceCaseCreate .caseHeader div.bBody {
+  text-align: left;
+}
+
+.selfServiceCaseCreate .caseHeader,
+.selfServiceCaseCreate .forceRecordLayout .mdp.forcePageBlockItemEdit{
+	padding:0 !important;
+}
+
+body .forceCommunityHeadline .headlineTitle,
+body .selfServiceArticleLayout .article-head,
+.forceCommunityUserProfileDetail div.profileName{
+	@extend h1;
+	text-align: left; 
+}
+
+.forceCommunityUserProfileDetail div.profileName{
+	margin:0 0 10px 0;
+}
+
+.profileView{
+	div.cUserProfileCon,
+	div.emailNotifPanel{
+		background:transparent;
+	}
+}
+
+.forceCommunityHeadline p {
+	display: none;
+}
+
+body .selfServiceCaseCreate button.buttonStyle,
+button.uiButton.default{
+	@extend .cta-btn; 
+}
+
+#contact-btn button,
+button.askCommunity.one.uiBlock.uiButton.forceCommunityAskCommunity{
+	@extend .cta-btn-icon;
+	@extend .ask-community-icon;
+}
+
+#contact-btn button{
+	@extend .contact-icon;
+}
+
+body .forceCommunityAskCommunity .label{
+	font-family: $secondaryFont;
+}
+
+button.search-button.default.uiBlock.uiButton{
+	@extend .cta-btn;
+	min-width:0px;
+	margin:0;
+	position: absolute;
+	background: #0094CB;
+}
+
+.cStoreCommunityUserMenu.mainMenuContainer{
+	width:97% !important;
+}
+
+.cStoreCommunityUserMenu #logoButton{
+	margin-right: 10px !important;
+}
+
+.blur .cCenterPanel, .blur .no-assigned-image, .blur .forceCommunityNavBar, .blur .cBrandingProfile, .blur .cProfileCon{
+	opacity:1 !important;
+}
+.blur .body-search .post-container {
+  z-index: 99999999;
+}
+
+.blur .cCurtainContainer {
+  display: block;
+  opacity: 1;
+  background-color: rgba(0,0,0,0.6);
+  z-index: 9999999;
+}
+
+body .cHeaderPanel span.required-label{
+	font-family:"Gill Sans W01 Medium",sans-serif;  
+}
+
+.cHeaderPanel .selfServiceSearchWrapper.big-search-container.show-result {
+  width: 70%;
+  margin: 0 auto;
+}
+
+.selfServiceTopicTrendingArticles .article-trending-item h3.article-title{
+	color:$primaryColour;
+}
+
+.selfServiceTrendingArticleItem .article-title{
+	white-space: normal !important;
+}
+body .forceCommunityUserProfileTabs.userProfileTabs,
+body .forceCommunityResultsList{
+	@extend .uiTabBar;
+
+
+	.forceChatterFeedItem.inFeed .cuf-feedElement{
+		@extend .cuf-feedElement;
+	}
+
+	.forceChatterOverflowActionMenu,
+	.forceChatterStyle .cuf-media-left,
+	.forceChatterSimpleFeedItemTopics,
+	.actionSection{
+		display:none;
+	}
+	.forceChatterStyle div.cuf-media,
+	.forceChatterStyle div.cuf-media-left+.cuf-media-main,
+	.forceChatterFeedItem:not(:first-child){
+		padding:0;
+		margin:0;
+	}
+	.forceChatterStyle .cuf-body{
+		margin:0;
+	}
+
+}
+
+
+.forceChatterFeedInner a.cuf-showMore{
+	@extend .show-more; 
+}
+
+.forceCommunityUserProfileDetail .forcePageBlockItemView .dataCol span{
+	font-size:14px;
+	color:#747474;
+}
+
+.forceCommunityUserProfileDetail .forcePageBlockItemView div.labelCol .osOutputLabel{
+	font-family: 'Gill Sans W01 Medium',sans-serif;
+	font-size:16px;
+	color:#4B4B4B;
+}
+
+.userNav {
+    background-color: #000;
+    border: none;
+    height: 64px;
+}
+.cHeaderLine {
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    max-width: 100%;
+    height: 223px !important;
+    padding: 1px 14px 100px 14px;
+    position: relative;
+}
+.cHeaderPanel .selfServiceSearchWrapper.big-search-container {
+    width: 70%;
+}
+.forceCommunityOmniBox.selfServiceSearchWrapper button.search-button.uiButton,
+.forceCommunityOmniBox.selfServiceSearchWrapper .has-input button.search-button.uiButton,
+.forceCommunityOmniBox.selfServiceSearchWrapper button.search-button.uiButton.focus {
+    text-indent: -99999px;
+    width: 68px;
+}
+
+.selfServiceCaseCreate .forceRecordLayout .mdp.forcePageBlockItemEdit label.label.uiLabel-hidden{
+	display:block;
+}
+
+.mdp-container span.assistiveText{
+	position: relative !important;
+	height:auto;
+	width:auto;
+}
+
+body .uiInput.selfServiceInputText{
+	display: none;
+}
+
+body .selfServiceCaseCreate .forceRecordLayout{
+	@extend .form-container;
+	input.inputText,
+	input.inputEmail{
+		height:auto;
+	}
+	div.submitButtonContainer{
+		padding:0;
+	}
+}
+
+@media only screen and (min-width: 48em){
+	.selfServiceBaseCaseCreation div.mdp-container {
+	  	margin: 0; 
+	  	width: 50%;
+	}
+}
+
+@media only screen and (min-aspect-ratio: 4/3) and (min-width: 48em), only screen and (min-width: 64.0625em){
+	.selfServiceCaseCreate .footer div.submitButtonContainer {
+	  padding: 0 ;
+	}
+}
+
+.forceCommunityOmniBox .body-search {
+    width: 100%;
+}
+@media (min-width: 48em){
+    .cOmniBoxFocused .cHeaderLine {
+      padding: 0px 14px 100px 14px;
+    }
+    
+    .cHeaderPanel .selfServiceSearchWrapper .no-assigned-image {
+      height: 100%;
+    }
+    .cOmniBoxFocused .cSearchPublisher,
+    .cSearchPublisher{
+      float:none;
+      width: 80%;
+      max-width:980px;
+      margin: 0 auto;
+      overflow: hidden;
+    }
+}
+.cOmniBoxFocused .cSearchPublisher, 
+.cSearchPublisher {
+    float: none;
+    width: 80%;
+    max-width: 980px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+#userMenuComponentWrapper {
+    background-color: #000;
+}
+body .selfServiceArticleLayout.article-column {
+    padding: 0;
+}
+
+.selfServiceTopicTrendingArticles .article-trending-item h3.article-title {
+    padding: 6px 0;
+}
+
+div.cContentPanel {
+    padding: 0px;
+    width: 97%;
+    margin: 0 auto;
+    max-width: 980px;
+}
+
+body .selfServiceTopicTrendingArticles .article-trending-item .article-title{
+	color:#0396ca;
+	display: inline;
+
+}
+
+body .homepage .selfServiceTopicTrendingArticles li.article-trending-item {
+  list-style: decimal outside;
+  margin: 20px 1.2em;
+}
+
+.selfServiceTopicTrendingArticles .topic-trending-articles {
+  font-weight: 300;
+  list-style: disc outside none;
+}
+
+.pod-48{
+	max-width:48%; 
+}
+
+.ctaPanel p {
+    
+}
+.contact-con {
+    @extend .col-2; 
+
+}
+
+.cFeaturedArticle .faTextWrapper{
+	width:30%;
+}
+
+.article-type {
+  display: none;
+}
+
+.subMenuItem {
+	h3{
+		@extend h3;
+		margin:0;
+		font-family: "Gill Sans W01 Medium",sans-serif;
+	}
+	p{
+		margin:0;
+	}
+}
+
+.selfServiceTopicTrendingArticles li.article-trending-item {
+    display: list-item;
+    margin:10px 0;
+}
+
+.selfServiceCaseArticleDeflection .selfServiceTopicTrendingArticles .selfServiceTrendingArticleItem h3.article-title,
+body .selfServiceCaseArticleDeflection .selfServiceTrendingArticleItem .article-title,
+.selfServiceCaseArticleDeflection .topic-trending-articles li,
+.selfServiceTopicTrendingArticles .topic-trending-articles {
+    @extend .disc-style; 
+}
+.selfServiceTopicTrendingArticles li.article-trending-item {
+    border: 0;
+}
+.homepage .selfServiceTopicTrendingArticles li.article-trending-item {
+    @extend .ordered-list;
+}
+
+.deflection-container {
+  display: none;
+} 
+
+.homepage .selfServiceTopicTrendingArticles h2.trendingHeader {
+    font-family: 'Gill Sans W01 Light',sans-serif;
+    font-size: 40px;
+}
+.forceCommunityOmniBox div.body-search {
+    margin: 0; 
+}
+button.search-button.default.uiBlock.uiButton::after {
+    content: ' ';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: url('/icon_search.png') no-repeat center center;
+    background-size: 20px;
+}
+.selfServiceBaseCaseCreation .two-column div.mdp-container,
+.selfServiceBaseCaseCreation .two-column div.deflection-container {
+    margin: 0;
+}
+.contactForm .caseHeader,
+.contactForm .forcePageBlockItem,
+.contactForm .mdp forcePageBlockSectionRow { 
+    display: none;
+}
+.cCenterPanel {
+    width: 100%;
+    max-width: 999999999999px;
+    margin: 0 auto;
+    overflow: hidden;
+    margin-top: 0;
+}
+.cPopularPost.popularQuestionWrapper:first-of-type  {
+    padding: 0 20px 20px 0px;
+}
+@media only screen and (min-width: 64em){	
+    .ctaPanel {
+      margin-top: 0;
+    }
+}
+@media only screen and (min-width: 64em){
+    .articleView .article-column .article-head {
+      margin-top: 0px;
+    }
+}
+
+
+/* search */
+
+
+body .selfServiceArticleListItem:first-child {
+  border-top: none;
+  padding: 0; 
+}
+
+@import 'mediaqs.scss'; 

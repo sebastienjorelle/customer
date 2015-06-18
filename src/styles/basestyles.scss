@@ -1,0 +1,513 @@
+$primaryColour: #0396ca;
+$secondaryFont: "Gill Sans W01 Medium",sans-serif;
+
+body,
+html { 
+    font-size: 16px;
+}
+
+a{
+    color: $primaryColour;
+    font-size: 16px;
+}
+
+p {
+    font-size: 14px;
+    line-height: 22px;
+    margin: 10px 0;
+    color: #666 !important;
+}
+
+strong {
+    font-weight:bold;
+    color: #111;
+    &.gill{
+    	font-weight:"Gill Sans W01 Medium",sans-serif;
+    	font-weight:normal;
+    	font-size:21px;
+    }
+}
+
+table{
+	width: 100%;
+	td{
+		padding:5px 0;
+	}
+	.break{
+		padding-bottom:35px;
+	}
+	
+}
+.main-content-container{
+	width:60%;
+}
+.main-content-sidebar{
+	width:30%;
+}
+.pull-left {
+    float: left;
+}
+
+.pull-right {
+    float: right;
+}
+
+.centered-content {
+    width: 97%;
+    max-width: 980px;
+    clear:both;
+    margin: 0 auto;
+}
+
+.centered-content-main {
+    @extend .centered-content;
+    margin:60px auto 0 auto;
+}
+
+h1,h2,h3,h4,h5,h6 {
+	font-weight: lighter;
+    font-family: 'Gill Sans W01 Light',sans-serif;
+    text-transform: none;
+    color: #111;
+    padding:0; 
+    margin: 0 0 35px 0;
+    text-align: left;
+}
+
+h1,h2{
+	margin:0 0 35px 0;
+}
+
+h4,h5,h6{
+	color: #0396ca;
+	font-family: 'Gill Sans W01 Medium',sans-serif;
+}
+
+h5 {
+    font-size: 16px; 
+}
+
+h5 {
+    font-size: 18px;
+}
+
+h3 {
+    font-size: 21px;
+}
+h2 {
+    font-size: 30px; 
+}
+h1 {
+	font-size:40px; 
+	margin: 0px 0 35px 0;
+}
+
+.headerText h1{
+    position: relative;
+    z-index: 1; 
+    color: #fff;
+    font-size: 48px;
+    padding: 40px 0;
+    margin: 0 0 5px 0;
+    font-family: "Gill Sans W01 light",sans-serif;
+}
+
+.col-2{
+	width: 47%;
+  	margin: 0 20px 20px 0;
+  	font-size: 18px;
+  	border-right: 1px solid #ccc;
+  	&:last-child{ 
+  		border:0;
+  		margin: 0;
+  	}
+}
+
+/* grid */
+.g1-5{
+  width:20%;
+}
+
+.g2-5{
+  width:40%;
+}
+
+.g3-5{
+  width:60%;
+}
+
+.g4-5{
+  width:80%;
+}
+
+.g5-5{
+  width:100%;
+}
+
+.split{
+	width:50%;
+}
+
+.borderless{
+	border:0;
+}
+
+.clear {
+    clear: both;
+}
+
+.container {
+    margin: 20px 0 0 0;
+    padding: 40px 0;
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    overflow: hidden;
+    clear:both;
+}
+.cta-btn{
+	border-radius: 0px;
+    position: relative;
+    text-align: left;
+    font-weight: lighter;
+    margin: 20px 0 0;
+    padding: 7px 20px;
+    background: #4fc3f7;
+    border: none;
+    width:auto;
+    font-size: 18px;
+    display: inline-block;
+    text-transform: none;
+    color:#000;
+    -webkit-transition: background .8s ease;
+    transition: background .8s ease;
+    box-shadow: none;
+    text-shadow: none;
+    font-family: "Gill Sans W01 Medium",sans-serif;
+}  
+
+.cta-btn-icon{
+	@extend .cta-btn; 
+	min-height: 59px; 
+	min-width: 272px;
+	padding:13px 0 13px 57px;
+	&::after{
+    	content: '';
+	    height: 59px;
+	    width: 59px;
+	    left: 0;
+	    top: 0;
+	    position: absolute;
+	    
+    }
+}
+
+.ask-community-icon::after {
+    background: transparent url('https://bbcworldwide.force.com/BBCStore/s/btn_icon_ask.png') no-repeat center center;
+    background-size: 26px auto;
+}
+
+ 
+.contact-icon::after {
+    background: transparent url('https://bbcworldwide.force.com/BBCStore/s/btn_icon_contactus.png') no-repeat center center;
+    background-size: 26px auto;
+}
+
+
+button.uiButton.default.tertiary-btn{
+	@extend .cta-btn;
+	border:1px solid #4fc3f7;
+	background: transparent;
+}
+
+button.search-button.default.uiBlock.uiButton{
+	&::after {
+	    background-image: url('https://bbcworldwide.force.com/BBCStore/s/icon_search.png') !important;
+	    background-repeat: none !important;
+	    background-size: 28px !important;
+	    background-position:center center !important;
+	}
+}
+
+.ordered-list {
+	border: 0;
+    list-style: decimal inside;
+    color: #111;
+    margin: 20px 0;
+}  
+
+.disc-style{
+	list-style: disc inside none;
+	font-family: "Gill Sans W01 Medium",sans-serif;
+	font-size:18px;
+	font-weight: normal;
+    color: $primaryColour;
+}    
+
+
+.uiTabBar {
+	.tabList{
+		font-family: 'Gill Sans W01 Light',sans-serif;
+		
+		li{
+	  		background: #EEEEEE;
+			padding:5px 20px;
+			border-radius:0;
+			letter-spacing:0.08em;
+			padding: 5px 20px; 
+			a.tabHeader{
+				text-transform:none;
+	  		}
+	  		&.active{
+			background: #28A5D4;
+			border-bottom-color:#28A5D4;
+				a.tabHeader{
+					color:#fff;
+				} 
+			}
+		}	
+	}
+}
+
+.forceChatterFeedItem{
+	background: transparent url('https://bbcworldwide.force.com/BBCStore/s/icon_post.png') no-repeat 20px 26px;
+  	background-size: 26px;
+  	
+  	&:nth-of-type(odd) {
+		background:#F5F5F5 url('https://bbcworldwide.force.com/BBCStore/s/icon_post.png') no-repeat 20px 26px;
+		background-size: 26px;
+	}
+}
+
+.article-item{
+	@extend .forceChatterFeedItem;
+	.summary{
+		padding: 20px 0 20px 70px; 
+	}
+	&.selfServiceArticleListItem p.article-summary{
+		@extend p; 
+		margin: 0 ;
+	}
+}
+
+.cuf-feedElement{
+	background: transparent;
+	padding: 20px 20px 20px 70px;
+	.forceChatterFeedBodyText{
+		font-size: 14px;
+		line-height: 1em;
+ 		margin: 0;
+	}
+	.forceChatterFeedBody{
+		@extend h4;
+		color: #4FC3F7;
+		line-height: 1em;
+  		margin: 0;
+	}
+	.cuf-auxBody, .forceChatterFeedAuxBodyQuestionPostInner{
+		background-color: #E1F3FC;
+		.questionWithBestAnswerIcon{
+			display:none ;
+		}
+	}
+	.cuf-bestAnswerContainer .bleft{
+		display:none;
+	}
+	.forceChatterFeedAuxBodyQuestionPostInner{
+		padding:20px;		
+
+		.cuf-bestAnswerContainer{
+			padding:37px 0 0 0px;
+			background:#E1F3FC url('https://bbcworldwide.force.com/BBCStore/s/icon_bestanswer.png') no-repeat 2px 2px;
+			background-size: 149px;
+		}
+
+		.attach-body{
+			padding:0;
+		}
+	}
+}
+
+.serviceStatus{
+	h3{
+		@extend h3;
+		font-size:18px;
+		margin:0 0 10px 0;
+		font-family: "Gill Sans W01 Medium",sans-serif;
+	}
+	.no-issue-icon{
+		max-width: 19px;
+		margin: 3px 10px 30px 0;
+		float: left;
+	}
+	.no-issue{ 
+		font-size:14px;
+		font-family:arial;
+		color:#028D00;
+		font-weight: bold;
+	}
+}
+
+.show-more{
+  border:0px;
+  border-top: 1px solid #CCCCCC;
+  border-bottom: 1px solid #CCCCCC;
+  padding: 20px;
+  padding-left:50px;
+  border-radius: 0px;
+  color: #000;
+  text-align: left; 
+  display: block;
+  margin: 20px 0;
+  background: transparent url('https://bbcworldwide.force.com/BBCStore/s/ui_seemore.png') no-repeat 20px 23px;
+  background-size: 16px;
+  font-family: "Gill Sans W01 Medium",sans-serif;
+ }
+
+ div.forceCommunityUserProfileStats{
+ 	background-color: #0095CC;
+ 	color:#fff;
+	  font-size: 14px;
+	  line-height: 1.42857;
+	  border-style: solid;
+	  border-width: 0px;
+	  border-color: transparent;
+	  font-family: "Gill Sans W01 Medium",sans-serif;
+	  overflow: hidden;
+	  .profileVerticalStat{
+	  	border:0;
+	  }
+	  .profileStat {
+	  	padding:20px;
+	  	min-height:113px;
+	  	min-width: 113px;
+	  	color:#fff;
+	  	border: 5px solid #fff;
+	  	
+	  	.statNumber,
+	  	.statDesc{
+	  		font-family: "Gill Sans W01 light",sans-serif;
+	  		color:#fff;
+	  		
+	  	}
+	  	.statNumber{
+	  		font-size:30px;
+	  	}
+	  }
+ }
+
+
+.forceCommunityForceCommunityFeed .chatter-menu li.forceChatterRadioMenuItem b.selectedIcon,
+body .forceCommunityForceCommunityFeed .chatter-menu li.forceChatterRadioMenuItem .selected span.optionLabel,
+.forceChatterRadioMenuItem .selected span{
+	color: #4FC3F7
+}
+
+.forceChatterStyle .cuf-media-box{
+	margin: 0 0 20px 0;
+	 
+	.cuf-preamble,
+	.cuf-subPreamble{
+		float:left;
+		margin:0;
+	}
+	.cuf-entityLink span,
+	span.uiOutputText  {
+	  font-size: 14px;
+	  font-weight: lighter;
+	  color:#606060 ;
+	}
+
+	a.cuf-entityLink span{
+		color: #4FC3F7
+	}
+
+}
+
+
+.profileView{ 
+	max-width: 980px;
+	margin: 0 auto;
+}
+
+.ctaPanel {
+    background: #eee;
+    padding: 30px;
+    width:auto;
+    max-width: 920px;
+    margin: 0 auto;
+    overflow: hidden;
+    strong{
+    	font-family:"Gill Sans W01 Medium",sans-serif;
+    	font-weight:normal;
+    }
+    p{
+    	margin: 0;
+    }
+    &.wide{
+    	width:90%;
+    	float: none;
+    	p{
+    		font-size: 18px;
+    	}
+    }
+
+}
+
+
+.form-container{
+	span.headerLabel{
+		border-bottom:1px solid #ccc;
+		display:block;
+		padding: 0 0 10px 0;
+		margin: 0 0 10px 0;
+	}
+	input,
+	textarea{
+		width: 60%;
+		padding: 6px; 
+		height: auto;
+		max-height: auto;
+		margin: 0 0 20px 0;
+	}
+	label span{
+		font-family:"Gill Sans W01 Medium",sans-serif;
+		color:#000;
+		display: block;
+		margin:0 0 10px 0;
+		text-transform: none;
+		font-size:18px;
+	}
+}
+
+.profiler-header{
+	border-bottom:1px solid #ccc;
+	margin:0 0 20px 0;
+	padding:0 0 40px 0;
+	h1{
+		margin:0 0 10px 0;
+	}
+
+}
+
+.profile-details{ 
+	width:76%;
+	padding-bottom:10px;
+	border-bottom:1px solid #f1f1f1;
+	table{
+		margin:0 0 20px 0; 
+	}
+}
+
+.stat-container {
+  float: right;
+  margin: 0 0 0 1.7%;
+  text-align: center;
+  background: #0095CC;
+  min-width: 30%;
+  padding: 4% 1% 4% 1%;
+  color: #fff;
+  span{
+  	font-size: 3em;
+  	display: block;
+  }
+}

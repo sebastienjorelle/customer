@@ -1,0 +1,156 @@
+@media (max-width:1020px){
+	.contact-con,
+	.contact-con:last-child{
+		border:0;
+		width:100%;
+		margin:0 auto 20px auto;
+		text-align: center;
+
+	}
+	
+}
+
+@media (max-width:996px){
+	.cStoreCommunityNavBar .mainMenu {
+		ul{
+			max-height:9999999999999px !important;
+
+		}
+		li{
+			width:100% !important;
+			padding: 20px !important;
+			height:auto !important;
+			div.mainMenuText,
+			div.mainMenuTextWrapper{
+				margin:0; 
+				position:relative;
+				width:auto;
+				height: auto;
+				padding:0;
+				margin: 0;
+				display: block;
+				text-align: left; 
+				br{
+					display: none;
+				}
+				span{
+					display: inline-block;
+					margin-right: 5px;
+				}
+			}
+			div.mainMenuText {
+			  padding: 0 0 0 32px;
+			  display: inline-block;
+			}
+			div.borderRight {
+			  border-right:0;
+			}
+		}
+		.menuImage0,
+		.menuImage1,
+		.menuImage2,
+		.menuImage3,
+		.menuImage4,
+		.menuImage5{
+			background-position: left center;
+			background-size: 20px; 
+		}
+	}
+}
+
+@media (max-width:769px){
+	body .forceCommunityOmniBox.selfServiceSearchWrapper.big-search-container button.search-button.uiButton{
+		background:#0094CB !important;
+		left:auto !important;
+	}
+	body .forceCommunityOmniBox.selfServiceSearchWrapper .search-field{
+		border-radius:0px !important;
+	}
+	.forceCommunityOmniBox.focused div.body-search{
+		  width: 80% !important;
+		  top: 70%;
+		  left: 5%;
+		  z-index: 99999999 !important;
+	}
+	body .selfServiceSearchWrapper button.uiInputSearch.clear{
+		display:none !important;
+	}
+	.cHeaderPanel .selfServiceSearchWrapper .no-assigned-image {
+  		height: 100% !important;
+  	}
+
+  	.forceCommunityOmniBox.focused .close-button.uiButton {
+	  border-left:0 !important;
+	  border-radius: 0 2px 2px 0;
+	  top: -60px !important;
+	  right: -17px !important;
+	}
+
+	.cOmniBoxFocused .cSearchPublisher, .cSearchPublisher{
+		margin: 0;
+	}
+
+	.cHeaderPanel .selfServiceSearchWrapper.big-search-container {
+	  width: 100% !important;
+	}
+
+	.main-content-container,
+	.main-content-sidebar{
+		width: 100%;
+	}
+
+	.selfServiceTopicTrendingArticles .article-trending-item h3.article-title{
+		display: inline;
+	}
+}
+
+@media (max-width:735px){
+	.pull-left{
+		float: none;
+	}
+	.g1-5{
+		margin:0 auto;
+		text-align: center;
+		width:40%;
+	}
+	.profile-details{ 
+		width:100%;
+		.stat-container {
+		  float: right;
+		  margin: 0 1%;
+		  min-width: 31.3%;
+		  span{
+		  	font-size: 3em;
+		  	display: block;
+		  }
+		}
+		.split{
+			margin:10px auto;
+			width:100%;
+		}
+
+	}	
+	.profiler-header{
+		text-align: center;
+	}
+}
+
+@media (max-width:699px){
+	.col-2{
+		width:100%;
+		margin:20px 0;
+	}
+	
+	.selfServiceTopicTrendingArticles .article-trending-item h3.article-title{
+		display:inline;
+	}
+
+}
+
+@media (max-width:603px){
+	.headerText h1{
+		padding:5px 0;
+	}
+
+}
+
